@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmaar5fm0qybv"]
 
 [ext_resource type="Texture2D" uid="uid://dg4sissfrml74" path="res://Assets/BGNormal.png" id="1_cmrfp"]
+[ext_resource type="Script" uid="uid://dxcq2mlaj1i7g" path="res://Scripts/main_menu.gd" id="1_riqfo"]
 [ext_resource type="Texture2D" uid="uid://cpoilxau68qxg" path="res://Assets/BGLight.png" id="2_loo7a"]
 [ext_resource type="Texture2D" uid="uid://cnafky4vaccwc" path="res://Assets/BGVoid.png" id="3_if7li"]
 [ext_resource type="Texture2D" uid="uid://fuasd1tohghq" path="res://Assets/VoidFloor.png" id="4_rrcx7"]
@@ -20,6 +21,7 @@
 [node name="CatScene" type="Control" unique_id=1375224048]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_riqfo")
 
 [node name="BGs" type="Node2D" parent="." unique_id=892573024]
 
