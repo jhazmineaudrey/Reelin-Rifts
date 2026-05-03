@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bct04nwop3a4w" path="res://Assets/CatNormal.png" id="7_7467j"]
 [ext_resource type="Texture2D" uid="uid://dfky885p54xm6" path="res://Assets/CatLight.png" id="8_2x1g0"]
 [ext_resource type="Texture2D" uid="uid://cws53q25pckwv" path="res://Assets/CatVoid.png" id="9_riqfo"]
-[ext_resource type="Texture2D" uid="uid://b3m5l4qd5syg5" path="res://Assets/Backpack.png" id="10_2x1g0"]
+[ext_resource type="Texture2D" uid="uid://dbg13hqyyvrbt" path="res://Assets/BackpackBG.png" id="10_2x1g0"]
 [ext_resource type="Texture2D" uid="uid://urcdp8ansr84" path="res://Assets/axolotlvoidpic.png" id="11_riqfo"]
 [ext_resource type="Texture2D" uid="uid://u646il4uu4y5" path="res://Assets/voidsquidpic.png" id="12_yxkem"]
 [ext_resource type="Texture2D" uid="uid://jbrtxcphymvr" path="res://Assets/fihpic.png" id="13_7v4os"]
