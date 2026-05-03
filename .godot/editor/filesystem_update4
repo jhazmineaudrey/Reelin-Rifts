@@ -1,2 +1,3 @@
 res://Scenes/MainMenu.tscn
 res://Scripts/global_vars.gd
+res://Scripts/main_menu.gd

@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dt5teo1i286pt" path="res://Assets/VoidIsle2.png" id="6_8e205"]
 [ext_resource type="Texture2D" uid="uid://bct04nwop3a4w" path="res://Assets/CatNormal.png" id="7_7467j"]
 [ext_resource type="Texture2D" uid="uid://dfky885p54xm6" path="res://Assets/CatLight.png" id="8_2x1g0"]
+[ext_resource type="Texture2D" uid="uid://d1bjj7gihvami" path="res://Assets/LightAnimCircle.png" id="8_yxkem"]
 [ext_resource type="Texture2D" uid="uid://cws53q25pckwv" path="res://Assets/CatVoid.png" id="9_riqfo"]
 [ext_resource type="Texture2D" uid="uid://dbg13hqyyvrbt" path="res://Assets/BackpackBG.png" id="10_2x1g0"]
 [ext_resource type="Texture2D" uid="uid://urcdp8ansr84" path="res://Assets/axolotlvoidpic.png" id="11_riqfo"]
@@ -17,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://e7uqoq767130" path="res://Assets/salmonpic.png" id="14_pjscj"]
 [ext_resource type="Texture2D" uid="uid://dhgkikn1c2oh3" path="res://Assets/whalepic.png" id="15_m7n2d"]
 [ext_resource type="Texture2D" uid="uid://crxh6n5qcq5hm" path="res://Assets/pearlpic.png" id="16_65hh5"]
+[ext_resource type="Texture2D" uid="uid://b3m5l4qd5syg5" path="res://Assets/Backpack.png" id="19_pjscj"]
+[ext_resource type="Texture2D" uid="uid://ddt26n47wjn1j" path="res://Assets/BackpackHover.png" id="20_m7n2d"]
 
 [node name="CatScene" type="Control" unique_id=1375224048]
 layout_mode = 3
@@ -56,7 +59,13 @@ visible = false
 texture = ExtResource("6_8e205")
 centered = false
 
+[node name="LightRing" type="Sprite2D" parent="SceneItems" unique_id=2008870429]
+visible = false
+texture = ExtResource("8_yxkem")
+centered = false
+
 [node name="Cats" type="Node2D" parent="." unique_id=1145958115]
+position = Vector2(218.275, 0)
 
 [node name="Normal" type="Sprite2D" parent="Cats" unique_id=1893778164]
 texture = ExtResource("7_7467j")
@@ -73,6 +82,7 @@ texture = ExtResource("9_riqfo")
 centered = false
 
 [node name="BackpackItems" type="Node2D" parent="." unique_id=789525542]
+z_index = 5
 
 [node name="BackpackUI" type="Sprite2D" parent="BackpackItems" unique_id=1691787979]
 texture = ExtResource("10_2x1g0")
@@ -107,3 +117,24 @@ centered = false
 position = Vector2(297.47, 498.875)
 texture = ExtResource("16_65hh5")
 centered = false
+
+[node name="BackpackToggle" type="TextureButton" parent="." unique_id=2111341832]
+layout_mode = 0
+offset_left = -108.91
+offset_right = -8.910004
+offset_bottom = 720.0
+texture_normal = ExtResource("19_pjscj")
+texture_pressed = ExtResource("19_pjscj")
+texture_hover = ExtResource("20_m7n2d")
+
+[node name="CloseBackpackArea" type="ColorRect" parent="." unique_id=800649674]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 600.0
+offset_top = -32.0
+offset_right = 1311.0
+offset_bottom = 738.0
+
+[connection signal="pressed" from="BackpackToggle" to="." method="_on_backpack_open_pressed"]
+[connection signal="mouse_entered" from="CloseBackpackArea" to="." method="_on_close_backpack_area_mouse_entered"]
+[connection signal="mouse_exited" from="CloseBackpackArea" to="." method="_on_close_backpack_area_mouse_exited"]
