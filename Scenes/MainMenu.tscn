@@ -9,6 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://bct04nwop3a4w" path="res://Assets/CatNormal.png" id="7_7467j"]
 [ext_resource type="Texture2D" uid="uid://dfky885p54xm6" path="res://Assets/CatLight.png" id="8_2x1g0"]
 [ext_resource type="Texture2D" uid="uid://cws53q25pckwv" path="res://Assets/CatVoid.png" id="9_riqfo"]
+[ext_resource type="Texture2D" uid="uid://b3m5l4qd5syg5" path="res://Assets/Backpack.png" id="10_2x1g0"]
+[ext_resource type="Texture2D" uid="uid://urcdp8ansr84" path="res://Assets/axolotlvoidpic.png" id="11_riqfo"]
+[ext_resource type="Texture2D" uid="uid://u646il4uu4y5" path="res://Assets/voidsquidpic.png" id="12_yxkem"]
+[ext_resource type="Texture2D" uid="uid://jbrtxcphymvr" path="res://Assets/fihpic.png" id="13_7v4os"]
+[ext_resource type="Texture2D" uid="uid://e7uqoq767130" path="res://Assets/salmonpic.png" id="14_pjscj"]
+[ext_resource type="Texture2D" uid="uid://dhgkikn1c2oh3" path="res://Assets/whalepic.png" id="15_m7n2d"]
+[ext_resource type="Texture2D" uid="uid://crxh6n5qcq5hm" path="res://Assets/pearlpic.png" id="16_65hh5"]
 
 [node name="CatScene" type="Control" unique_id=1375224048]
 layout_mode = 3
@@ -61,4 +68,40 @@ centered = false
 [node name="Void" type="Sprite2D" parent="Cats" unique_id=1321818416]
 visible = false
 texture = ExtResource("9_riqfo")
+centered = false
+
+[node name="BackpackItems" type="Node2D" parent="." unique_id=789525542]
+
+[node name="BackpackUI" type="Sprite2D" parent="BackpackItems" unique_id=1691787979]
+texture = ExtResource("10_2x1g0")
+centered = false
+
+[node name="AxolotlPic" type="Sprite2D" parent="BackpackItems" unique_id=1129215648]
+position = Vector2(115.765, 304)
+texture = ExtResource("11_riqfo")
+centered = false
+
+[node name="VoidSquidPic" type="Sprite2D" parent="BackpackItems" unique_id=1985485537]
+position = Vector2(297.425, 304)
+texture = ExtResource("12_yxkem")
+centered = false
+
+[node name="FihPic" type="Sprite2D" parent="BackpackItems" unique_id=841630107]
+position = Vector2(297.425, 109.825)
+texture = ExtResource("13_7v4os")
+centered = false
+
+[node name="SalmonPic" type="Sprite2D" parent="BackpackItems" unique_id=1918066217]
+position = Vector2(117.065, 109.825)
+texture = ExtResource("14_pjscj")
+centered = false
+
+[node name="WhalePic" type="Sprite2D" parent="BackpackItems" unique_id=962318920]
+position = Vector2(117.065, 498.875)
+texture = ExtResource("15_m7n2d")
+centered = false
+
+[node name="PearlPic" type="Sprite2D" parent="BackpackItems" unique_id=1680925280]
+position = Vector2(297.47, 498.875)
+texture = ExtResource("16_65hh5")
 centered = false
