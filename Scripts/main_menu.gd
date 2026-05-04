@@ -24,6 +24,17 @@ var FISHING_SCENE = load("uid://dsnovo4ykgxq0")
 @onready var light_cat: Sprite2D = $Cats/Light
 @onready var void_cat: Sprite2D = $Cats/Void
 
+@onready var thought: Sprite2D = $Cats/Thought
+
+# Thoughts
+@onready var fish_thought: Node2D = $Cats/FishThought
+@onready var axolotl_pic_2: Sprite2D = $Cats/FishThought/AxolotlPic2
+@onready var void_squid_pic_2: Sprite2D = $Cats/FishThought/VoidSquidPic2
+@onready var fih_pic_2: Sprite2D = $Cats/FishThought/FihPic2
+@onready var salmon_pic_2: Sprite2D = $Cats/FishThought/SalmonPic2
+@onready var whale_pic_2: Sprite2D = $Cats/FishThought/WhalePic2
+@onready var pearl_pic_2: Sprite2D = $Cats/FishThought/PearlPic2
+
 # Backpack Items
 @onready var backpack_ui: Sprite2D = $BackpackItems/BackpackUI
 @onready var axolotl_pic: Sprite2D = $BackpackItems/AxolotlPic
@@ -36,18 +47,39 @@ var FISHING_SCENE = load("uid://dsnovo4ykgxq0")
 @onready var backpack_toggle: TextureButton = $BackpackToggle
 
 func _ready() -> void:
-	axolotl_pic.visible = true if GlobalVars.axolotl_unlock == true else false
-	void_squid_pic.visible = true if GlobalVars.vsquid_unlock == true else false
-	fih_pic.visible = true if GlobalVars.fish_unlock == true else false
-	salmon_pic.visible = true if GlobalVars.salmon_unlock == true else false
-	whale_pic.visible = true if GlobalVars.whale_unlock == true else false
-	pearl_pic.visible = true if GlobalVars.pearl_unlock == true else false
+	axolotl_pic.visible = true if GlobalScene.axolotl_unlock == true else false
+	void_squid_pic.visible = true if GlobalScene.vsquid_unlock == true else false
+	fih_pic.visible = true if GlobalScene.fish_unlock == true else false
+	salmon_pic.visible = true if GlobalScene.salmon_unlock == true else false
+	whale_pic.visible = true if GlobalScene.whale_unlock == true else false
+	pearl_pic.visible = true if GlobalScene.pearl_unlock == true else false
 		
 	normal_bg.visible = true
 	normal_cat.visible = true
 	cats.position = Vector2(0, 0)
 	backpack_items.position.x = -570.555
 	backpack_toggle.position = Vector2(0, 0)
+	
+func _process(_delta: float) -> void:
+	if GlobalScene.cat_want == true:
+		thought.visible = true
+		match GlobalScene.current_cat_want:
+			"Fish":
+				fih_pic_2.visible = true
+			"Salmon":
+				salmon_pic_2.visible = true
+			"VSquid":
+				void_squid_pic_2.visible = true
+			"Axolotl":
+				axolotl_pic_2.visible = true
+			"Whale":
+				whale_pic_2.visible = true
+			"Pearl":
+				pearl_pic_2.visible = true
+	else:
+		thought.visible = false
+		for item in fish_thought.get_children():
+			item.visible = false
 	
 func backpack_show():
 	create_tween().tween_property(backpack_items, "position:x", 0, 0.5).set_ease(Tween.EASE_IN_OUT)

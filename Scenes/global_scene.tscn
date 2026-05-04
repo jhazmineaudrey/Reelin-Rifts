@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ufjw5dipkwr8"]
+
+[ext_resource type="Script" uid="uid://ch4w3ufeo53h1" path="res://Scripts/global_vars.gd" id="1_1riqc"]
+
+[node name="GlobalScene" type="Node" unique_id=338158136]
+script = ExtResource("1_1riqc")
+
+[node name="TimeTilNextThought" type="Timer" parent="." unique_id=1130438091]
+one_shot = true
+
+[connection signal="timeout" from="TimeTilNextThought" to="." method="_on_tim_til_next_thought_timeout"]
