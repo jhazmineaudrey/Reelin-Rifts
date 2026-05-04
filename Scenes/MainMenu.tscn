@@ -13,11 +13,18 @@
 [ext_resource type="Texture2D" uid="uid://cws53q25pckwv" path="res://Assets/CatVoid.png" id="9_riqfo"]
 [ext_resource type="Texture2D" uid="uid://dbg13hqyyvrbt" path="res://Assets/BackpackBG.png" id="10_2x1g0"]
 [ext_resource type="Texture2D" uid="uid://urcdp8ansr84" path="res://Assets/axolotlvoidpic.png" id="11_riqfo"]
+[ext_resource type="Texture2D" uid="uid://c81kkpn85cp71" path="res://Assets/Thoughty.png" id="12_ke15f"]
 [ext_resource type="Texture2D" uid="uid://u646il4uu4y5" path="res://Assets/voidsquidpic.png" id="12_yxkem"]
 [ext_resource type="Texture2D" uid="uid://jbrtxcphymvr" path="res://Assets/fihpic.png" id="13_7v4os"]
+[ext_resource type="Texture2D" uid="uid://cdwso5ajggcc1" path="res://Assets/axolotl.png" id="13_311ux"]
 [ext_resource type="Texture2D" uid="uid://e7uqoq767130" path="res://Assets/salmonpic.png" id="14_pjscj"]
+[ext_resource type="Texture2D" uid="uid://d0osdk7xilebr" path="res://Assets/voidsquid.png" id="14_pnils"]
 [ext_resource type="Texture2D" uid="uid://dhgkikn1c2oh3" path="res://Assets/whalepic.png" id="15_m7n2d"]
+[ext_resource type="Texture2D" uid="uid://cu30le4bu2sb7" path="res://Assets/fih.png" id="15_ow4wq"]
 [ext_resource type="Texture2D" uid="uid://crxh6n5qcq5hm" path="res://Assets/pearlpic.png" id="16_65hh5"]
+[ext_resource type="Texture2D" uid="uid://b6w4cbidvp3x3" path="res://Assets/salmon.png" id="16_o66vf"]
+[ext_resource type="Texture2D" uid="uid://4jfbnq5adym" path="res://Assets/whale.png" id="17_fipmv"]
+[ext_resource type="Texture2D" uid="uid://dbwyeyaeug8le" path="res://Assets/pearl.png" id="18_ydmd8"]
 [ext_resource type="Texture2D" uid="uid://ddr048umkoste" path="res://Assets/Close.png" id="19_65hh5"]
 [ext_resource type="Texture2D" uid="uid://b3m5l4qd5syg5" path="res://Assets/Backpack.png" id="19_pjscj"]
 [ext_resource type="Texture2D" uid="uid://bcbjh504ju4u6" path="res://Assets/CloseHover.png" id="20_6byu3"]
@@ -85,6 +92,55 @@ visible = false
 texture = ExtResource("9_riqfo")
 centered = false
 
+[node name="Thought" type="Sprite2D" parent="Cats" unique_id=1706067659]
+position = Vector2(913.725, 91.99999)
+scale = Vector2(0.65178573, 0.65178573)
+texture = ExtResource("12_ke15f")
+
+[node name="FishThought" type="Node2D" parent="Cats" unique_id=1977763814]
+
+[node name="AxolotlPic2" type="Sprite2D" parent="Cats/FishThought" unique_id=1317041211]
+visible = false
+z_index = 6
+position = Vector2(855.725, 18)
+texture = ExtResource("13_311ux")
+centered = false
+
+[node name="VoidSquidPic2" type="Sprite2D" parent="Cats/FishThought" unique_id=1751745071]
+visible = false
+z_index = 6
+position = Vector2(857.725, 22)
+texture = ExtResource("14_pnils")
+centered = false
+
+[node name="FihPic2" type="Sprite2D" parent="Cats/FishThought" unique_id=1651621704]
+visible = false
+z_index = 6
+position = Vector2(852.725, 19)
+texture = ExtResource("15_ow4wq")
+centered = false
+
+[node name="SalmonPic2" type="Sprite2D" parent="Cats/FishThought" unique_id=640127463]
+visible = false
+z_index = 6
+position = Vector2(852.725, 22)
+texture = ExtResource("16_o66vf")
+centered = false
+
+[node name="WhalePic2" type="Sprite2D" parent="Cats/FishThought" unique_id=1954130149]
+visible = false
+z_index = 6
+position = Vector2(854.725, 20)
+texture = ExtResource("17_fipmv")
+centered = false
+
+[node name="PearlPic2" type="Sprite2D" parent="Cats/FishThought" unique_id=1929997084]
+visible = false
+z_index = 6
+position = Vector2(858.725, 21)
+texture = ExtResource("18_ydmd8")
+centered = false
+
 [node name="BackpackItems" type="Node2D" parent="." unique_id=789525542]
 z_index = 5
 
@@ -142,10 +198,10 @@ texture_hover = ExtResource("20_m7n2d")
 
 [node name="ChangeSceneIcon" type="TextureButton" parent="." unique_id=1745503389]
 layout_mode = 0
-offset_left = 1115.0
-offset_top = 11.0
-offset_right = 1265.0
-offset_bottom = 161.0
+offset_left = 1123.0
+offset_top = 234.0
+offset_right = 1273.0
+offset_bottom = 384.0
 texture_normal = ExtResource("23_leunp")
 texture_pressed = ExtResource("23_leunp")
 texture_hover = ExtResource("24_h1v62")

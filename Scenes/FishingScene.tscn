@@ -8,10 +8,10 @@
 script = ExtResource("1_yqmf6")
 
 [node name="ChangeSceneIcon" type="TextureButton" parent="." unique_id=1486157117]
-offset_left = 1115.0
-offset_top = 11.0
-offset_right = 1265.0
-offset_bottom = 161.0
+offset_left = 1123.0
+offset_top = 234.0
+offset_right = 1273.0
+offset_bottom = 384.0
 texture_normal = ExtResource("1_3sevs")
 texture_pressed = ExtResource("1_3sevs")
 texture_hover = ExtResource("2_yqmf6")
