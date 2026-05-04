@@ -1,3 +1,19 @@
 [gd_scene format=3 uid="uid://dsnovo4ykgxq0"]
 
+[ext_resource type="Texture2D" uid="uid://caa8pf4m5mreu" path="res://Assets/ToCatScene.png" id="1_3sevs"]
+[ext_resource type="Script" uid="uid://df7elyy6t1mq8" path="res://Scripts/fishing_scene.gd" id="1_yqmf6"]
+[ext_resource type="Texture2D" uid="uid://dn7ju8dk55y6r" path="res://Assets/ToCatSceneHover.png" id="2_yqmf6"]
+
 [node name="FishingScene" type="Node2D" unique_id=2084561976]
+script = ExtResource("1_yqmf6")
+
+[node name="ChangeSceneIcon" type="TextureButton" parent="." unique_id=1486157117]
+offset_left = 1115.0
+offset_top = 11.0
+offset_right = 1265.0
+offset_bottom = 161.0
+texture_normal = ExtResource("1_3sevs")
+texture_pressed = ExtResource("1_3sevs")
+texture_hover = ExtResource("2_yqmf6")
+
+[connection signal="pressed" from="ChangeSceneIcon" to="." method="_on_change_scene_icon_pressed"]

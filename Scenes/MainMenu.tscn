@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://b3m5l4qd5syg5" path="res://Assets/Backpack.png" id="19_pjscj"]
 [ext_resource type="Texture2D" uid="uid://bcbjh504ju4u6" path="res://Assets/CloseHover.png" id="20_6byu3"]
 [ext_resource type="Texture2D" uid="uid://ddt26n47wjn1j" path="res://Assets/BackpackHover.png" id="20_m7n2d"]
+[ext_resource type="Texture2D" uid="uid://c8rmldaw2m3tc" path="res://Assets/ToFishSceneHover.png" id="23_leunp"]
+[ext_resource type="Texture2D" uid="uid://dbsiue34aa2al" path="res://Assets/ToFishScene.png" id="24_h1v62"]
 
 [node name="CatScene" type="Control" unique_id=1375224048]
 layout_mode = 3
@@ -138,5 +140,16 @@ texture_normal = ExtResource("19_pjscj")
 texture_pressed = ExtResource("19_pjscj")
 texture_hover = ExtResource("20_m7n2d")
 
+[node name="ChangeSceneIcon" type="TextureButton" parent="." unique_id=1745503389]
+layout_mode = 0
+offset_left = 1115.0
+offset_top = 11.0
+offset_right = 1265.0
+offset_bottom = 161.0
+texture_normal = ExtResource("23_leunp")
+texture_pressed = ExtResource("23_leunp")
+texture_hover = ExtResource("24_h1v62")
+
 [connection signal="pressed" from="BackpackItems/BackpackClose" to="." method="_on_backpack_close_pressed"]
 [connection signal="pressed" from="BackpackToggle" to="." method="_on_backpack_open_pressed"]
+[connection signal="pressed" from="ChangeSceneIcon" to="." method="_on_change_scene_icon_pressed"]

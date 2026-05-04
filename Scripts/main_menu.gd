@@ -1,5 +1,7 @@
 extends Control
 
+var FISHING_SCENE = load("uid://dsnovo4ykgxq0")
+
 # Groups
 @onready var b_gs: Node2D = $BGs
 @onready var scene_items: Node2D = $SceneItems
@@ -65,3 +67,6 @@ func _on_backpack_open_pressed() -> void:
 
 func _on_backpack_close_pressed() -> void:
 	backpack_hide()
+
+func _on_change_scene_icon_pressed() -> void:
+	get_tree().change_scene_to_packed(FISHING_SCENE)
