@@ -34,6 +34,13 @@ extends Control
 @onready var backpack_toggle: TextureButton = $BackpackToggle
 
 func _ready() -> void:
+	axolotl_pic.visible = true if GlobalVars.axolotl_unlock == true else false
+	void_squid_pic.visible = true if GlobalVars.vsquid_unlock == true else false
+	fih_pic.visible = true if GlobalVars.fish_unlock == true else false
+	salmon_pic.visible = true if GlobalVars.salmon_unlock == true else false
+	whale_pic.visible = true if GlobalVars.whale_unlock == true else false
+	pearl_pic.visible = true if GlobalVars.pearl_unlock == true else false
+		
 	normal_bg.visible = true
 	normal_cat.visible = true
 	cats.position = Vector2(0, 0)
