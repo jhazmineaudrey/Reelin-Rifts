@@ -1,7 +1,9 @@
+TextureRect
+TextureButton
+HBoxContainer
+Sprite2D
+Node2D
 Timer
 Node
-Node2D
-TextureButton
 ColorRect
-Sprite2D
 Control

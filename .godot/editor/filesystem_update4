@@ -1,6 +1,4 @@
-res://Scripts/main_menu.gd
-res://Scenes/MainMenu.tscn
 res://Scenes/FishingScene.tscn
 res://Scripts/fishing_scene.gd
 res://Scripts/global_vars.gd
-res://Scenes/global_scene.tscn
+res://Scenes/MainMenu.tscn

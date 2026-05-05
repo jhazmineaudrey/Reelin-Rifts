@@ -7,6 +7,10 @@ var axolotl_unlock : bool = false
 var whale_unlock : bool = false
 var pearl_unlock : bool = false
 
+var void_unlock : bool = false
+var light_unlock : bool = false
+
+
 var fish_qty : int = 0
 var salmon_qty : int = 0
 var vsquid_qty : int = 0
@@ -15,9 +19,10 @@ var whale_qty : int = 0
 var pearl_qty : int = 0
 
 var possible_cat_wants = ["Fish", "Salmon", "VSquid", "Axolotl", "Whale", "Pearl"]
-
 var current_cat_want : String
 var cat_want = false
+
+var current_scene : String  = "Normal"
 
 @onready var time_til_next_thought: Timer = $TimeTilNextThought
 
