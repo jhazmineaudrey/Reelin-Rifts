@@ -44,10 +44,20 @@ const DRAGGABLE_ITEM = preload("uid://72xqycyw85jl")
 @onready var salmon_pic: TextureRect = $BackpackItems/SalmonPic
 @onready var whale_pic: TextureRect = $BackpackItems/WhalePic
 @onready var pearl_pic: TextureRect = $BackpackItems/PearlPic
+# Labels
+@onready var axolotl_qty: Label = $BackpackItems/AxolotlQty
+@onready var fish_qty: Label = $BackpackItems/FishQty
+@onready var salmon_qty: Label = $BackpackItems/SalmonQty
+@onready var v_squid_qty: Label = $BackpackItems/VSquidQty
+@onready var whale_qty: Label = $BackpackItems/WhaleQty
+@onready var pearl_qty: Label = $BackpackItems/PearlQty
 
 # Dragging
 var current_hover = "None"
+var picked_up_item : String
+var hovering = false
 @onready var draggables: Node2D = $Draggables
+var dragobj
 
 @onready var backpack_toggle: TextureButton = $BackpackToggle
 
@@ -58,6 +68,13 @@ func _ready() -> void:
 	salmon_pic.visible = true if GlobalScene.salmon_unlock == true else false
 	whale_pic.visible = true if GlobalScene.whale_unlock == true else false
 	pearl_pic.visible = true if GlobalScene.pearl_unlock == true else false
+	
+	axolotl_qty.visible = true if GlobalScene.axolotl_unlock == true else false
+	v_squid_qty.visible = true if GlobalScene.vsquid_unlock == true else false
+	fish_qty.visible = true if GlobalScene.fish_unlock == true else false
+	salmon_qty.visible = true if GlobalScene.salmon_unlock == true else false
+	whale_qty.visible = true if GlobalScene.whale_unlock == true else false
+	pearl_qty.visible = true if GlobalScene.pearl_unlock == true else false
 	
 	axolotl_pic.mouse_filter = MOUSE_FILTER_PASS if GlobalScene.axolotl_unlock == true else MOUSE_FILTER_IGNORE
 	void_squid_pic.mouse_filter = MOUSE_FILTER_PASS if GlobalScene.vsquid_unlock == true else MOUSE_FILTER_IGNORE
@@ -73,40 +90,97 @@ func _ready() -> void:
 	backpack_toggle.position = Vector2(0, 0)
 	
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Click"):
-		match current_hover:
-			"Pearl":
-				var dragobj = DRAGGABLE_ITEM.instantiate()
-				draggables.add_child(dragobj)
-				dragobj.pearl.visible = true
-			"Whale":
-				var dragobj = DRAGGABLE_ITEM.instantiate()
-				draggables.add_child(dragobj)
-				dragobj.whale.visible = true
-			"Axolotl":
-				var dragobj = DRAGGABLE_ITEM.instantiate()
-				draggables.add_child(dragobj)
-				dragobj.axolotl.visible = true
-			"Salmon":
-				var dragobj = DRAGGABLE_ITEM.instantiate()
-				draggables.add_child(dragobj)
-				dragobj.salmon.visible = true
-			"Fish":
-				var dragobj = DRAGGABLE_ITEM.instantiate()
-				draggables.add_child(dragobj)
-				dragobj.fish.visible = true
-			"VSquid":
-				var dragobj = DRAGGABLE_ITEM.instantiate()
-				draggables.add_child(dragobj)
-				dragobj.vsquid.visible = true
-			"None":
-				if draggables.get_child_count() > 0:
+	if hovering == true:
+		if Input.is_action_just_pressed("Click"):
+			match current_hover:
+				"Pearl":
+					if GlobalScene.pearl_qty > 0:
+						dragobj = DRAGGABLE_ITEM.instantiate()
+						draggables.add_child(dragobj)
+						dragobj.pearl.visible = true
+						picked_up_item = "Pearl"
+				"Whale":
+					if GlobalScene.whale_qty > 0:
+						dragobj = DRAGGABLE_ITEM.instantiate()
+						draggables.add_child(dragobj)
+						dragobj.whale.visible = true
+						picked_up_item = "Whale"
+				"Axolotl":
+					if GlobalScene.axolotl_qty > 0:
+						dragobj = DRAGGABLE_ITEM.instantiate()
+						draggables.add_child(dragobj)
+						dragobj.axolotl.visible = true
+						picked_up_item = "Axolotl"
+				"Salmon":
+					if GlobalScene.salmon_qty > 0:
+						dragobj = DRAGGABLE_ITEM.instantiate()
+						draggables.add_child(dragobj)
+						dragobj.salmon.visible = true
+						picked_up_item = "Salmon"
+				"Fish":
+					if GlobalScene.fish_qty > 0:
+						dragobj = DRAGGABLE_ITEM.instantiate()
+						draggables.add_child(dragobj)
+						dragobj.fish.visible = true
+						picked_up_item = "Fish"
+				"VSquid":
+					if GlobalScene.vsquid_qty > 0:
+						dragobj = DRAGGABLE_ITEM.instantiate()
+						draggables.add_child(dragobj)
+						dragobj.vsquid.visible = true
+						picked_up_item = "VSquid"
+				"None":
+					if draggables.get_child_count() > 0:
+						for i in draggables.get_children():
+							i.queue_free()
+	if draggables.get_child_count() > 0:
+		if Input.is_action_just_released("Click"):
+			if dragobj.can_feed == true:
+				if picked_up_item == GlobalScene.current_cat_want:
+					match picked_up_item:
+						"Fish":
+							if GlobalScene.fish_qty > 0:
+								GlobalScene.fish_qty -= 1
+								GlobalScene.thought_reset()
+								for i in draggables.get_children():
+									i.queue_free()
+						"Salmon":
+							if GlobalScene.salmon_qty > 0:
+								GlobalScene.salmon_qty -= 1
+								GlobalScene.thought_reset()
+								for i in draggables.get_children():
+									i.queue_free()
+						"VSquid":
+							if GlobalScene.vsquid_qty > 0:
+								GlobalScene.vsquid_qty -= 1
+								GlobalScene.thought_reset()
+								for i in draggables.get_children():
+									i.queue_free()
+						"Axolotl":
+							if GlobalScene.axolotl_qty > 0:
+								GlobalScene.axolotl_qty -= 1
+								GlobalScene.thought_reset()
+								for i in draggables.get_children():
+									i.queue_free()
+						"Whale":
+							if GlobalScene.whale_qty > 0:
+								GlobalScene.whale_qty -= 1
+								GlobalScene.thought_reset()
+								for i in draggables.get_children():
+									i.queue_free()
+						"Pearl":
+							if GlobalScene.pearl_qty > 0:
+								GlobalScene.pearl_qty -= 1
+								GlobalScene.thought_reset()
+								for i in draggables.get_children():
+									i.queue_free()
+					# Add some logic here with the scoring system 👌
+				elif draggables.get_child_count() > 0:
 					for i in draggables.get_children():
 						i.queue_free()
-	elif Input.is_action_just_released("Click"):
-		if draggables.get_child_count() > 0:
-					for i in draggables.get_children():
-						i.queue_free()
+			elif draggables.get_child_count() > 0:
+				for i in draggables.get_children():
+					i.queue_free()
 	
 func _process(_delta: float) -> void:
 	if GlobalScene.cat_want == true:
@@ -128,6 +202,14 @@ func _process(_delta: float) -> void:
 		thought.visible = false
 		for item in fish_thought.get_children():
 			item.visible = false
+	
+	axolotl_qty.text = str(GlobalScene.axolotl_qty)
+	fish_qty.text = str(GlobalScene.fish_qty)
+	salmon_qty.text = str(GlobalScene.salmon_qty)
+	v_squid_qty.text = str(GlobalScene.vsquid_qty)
+	whale_qty.text = str(GlobalScene.whale_qty)
+	pearl_qty.text = str(GlobalScene.pearl_qty)
+	# Remember to put a max cap on this
 	
 func backpack_show():
 	create_tween().tween_property(backpack_items, "position:x", 0, 0.5).set_ease(Tween.EASE_IN_OUT)
@@ -155,38 +237,50 @@ func _on_change_scene_icon_pressed() -> void:
 # Dragging - Entered
 func _on_pearl_pic_mouse_entered() -> void:
 	current_hover = "Pearl"
+	hovering = true
 
 func _on_whale_pic_mouse_entered() -> void:
 	current_hover = "Whale"
+	hovering = true
 
 func _on_salmon_pic_mouse_entered() -> void:
 	current_hover = "Salmon"
+	hovering = true
 
 func _on_fih_pic_mouse_entered() -> void:
 	current_hover = "Fish"
+	hovering = true
 
 func _on_void_squid_pic_mouse_entered() -> void:
 	current_hover = "VSquid"
+	hovering = true
 
 func _on_axolotl_pic_mouse_entered() -> void:
 	current_hover = "Axolotl"
+	hovering = true
 	
 
 # Dragging - EXITED
 func _on_axolotl_pic_mouse_exited() -> void:
 	current_hover = "None"
+	hovering = false
 
 func _on_void_squid_pic_mouse_exited() -> void:
 	current_hover = "None"
+	hovering = false
 	
 func _on_fih_pic_mouse_exited() -> void:
 	current_hover = "None"
+	hovering = false
 
 func _on_salmon_pic_mouse_exited() -> void:
 	current_hover = "None"
+	hovering = false
 
 func _on_whale_pic_mouse_exited() -> void:
 	current_hover = "None"
+	hovering = false
 
 func _on_pearl_pic_mouse_exited() -> void:
 	current_hover = "None"
+	hovering = false

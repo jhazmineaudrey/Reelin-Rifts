@@ -76,6 +76,7 @@ offset_bottom = 10.16
 size_flags_vertical = 4
 
 [node name="VoidButton" type="TextureButton" parent="." unique_id=1559155310]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

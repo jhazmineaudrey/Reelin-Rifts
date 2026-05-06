@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bct04nwop3a4w" path="res://Assets/CatNormal.png" id="7_7467j"]
 [ext_resource type="Texture2D" uid="uid://dfky885p54xm6" path="res://Assets/CatLight.png" id="8_2x1g0"]
 [ext_resource type="Texture2D" uid="uid://d1bjj7gihvami" path="res://Assets/LightAnimCircle.png" id="8_yxkem"]
+[ext_resource type="Script" uid="uid://c4y0iua4qwuwm" path="res://Scripts/cats.gd" id="9_311ux"]
 [ext_resource type="Texture2D" uid="uid://cws53q25pckwv" path="res://Assets/CatVoid.png" id="9_riqfo"]
 [ext_resource type="Texture2D" uid="uid://dbg13hqyyvrbt" path="res://Assets/BackpackBG.png" id="10_2x1g0"]
 [ext_resource type="Texture2D" uid="uid://urcdp8ansr84" path="res://Assets/axolotlvoidpic.png" id="11_riqfo"]
@@ -81,6 +82,7 @@ centered = false
 
 [node name="Cats" type="CharacterBody2D" parent="." unique_id=1554911703]
 position = Vector2(218.275, 0)
+script = ExtResource("9_311ux")
 
 [node name="Normal" type="Sprite2D" parent="Cats" unique_id=1893778164]
 texture = ExtResource("7_7467j")
@@ -207,6 +209,54 @@ offset_bottom = 97.0
 texture_normal = ExtResource("19_65hh5")
 texture_pressed = ExtResource("19_65hh5")
 texture_hover = ExtResource("20_6byu3")
+
+[node name="AxolotlQty" type="Label" parent="BackpackItems" unique_id=1634457816]
+offset_left = 239.0
+offset_top = 429.0
+offset_right = 264.0
+offset_bottom = 452.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="FishQty" type="Label" parent="BackpackItems" unique_id=2025392828]
+offset_left = 422.0
+offset_top = 235.0
+offset_right = 444.0
+offset_bottom = 258.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="SalmonQty" type="Label" parent="BackpackItems" unique_id=771448915]
+offset_left = 244.0
+offset_top = 235.0
+offset_right = 265.0
+offset_bottom = 258.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="VSquidQty" type="Label" parent="BackpackItems" unique_id=590716941]
+offset_left = 425.0
+offset_top = 429.0
+offset_right = 444.0
+offset_bottom = 452.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="WhaleQty" type="Label" parent="BackpackItems" unique_id=58749012]
+offset_left = 245.0
+offset_top = 623.0
+offset_right = 265.0
+offset_bottom = 646.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="PearlQty" type="Label" parent="BackpackItems" unique_id=1882434882]
+offset_left = 424.0
+offset_top = 623.0
+offset_right = 444.0
+offset_bottom = 646.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
 
 [node name="BackpackToggle" type="TextureButton" parent="." unique_id=2111341832]
 layout_mode = 0
