@@ -5,10 +5,10 @@ var salmon_unlock : bool = false
 var vsquid_unlock : bool = false
 var axolotl_unlock : bool = false
 var whale_unlock : bool = false
-var pearl_unlock : bool = false
+var pearl_unlock : bool = true
 
-var void_unlock : bool = false
-var light_unlock : bool = false
+var void_unlock : bool = true
+var light_unlock : bool = true
 
 
 var fish_qty : int = 0

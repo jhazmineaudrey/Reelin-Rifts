@@ -32,6 +32,10 @@
 [ext_resource type="Texture2D" uid="uid://c8rmldaw2m3tc" path="res://Assets/ToFishSceneHover.png" id="23_leunp"]
 [ext_resource type="Texture2D" uid="uid://dbsiue34aa2al" path="res://Assets/ToFishScene.png" id="24_h1v62"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ke15f"]
+radius = 100.725006
+height = 542.0
+
 [node name="CatScene" type="Control" unique_id=1375224048]
 layout_mode = 3
 anchors_preset = 0
@@ -75,7 +79,7 @@ visible = false
 texture = ExtResource("8_yxkem")
 centered = false
 
-[node name="Cats" type="Node2D" parent="." unique_id=1145958115]
+[node name="Cats" type="CharacterBody2D" parent="." unique_id=1554911703]
 position = Vector2(218.275, 0)
 
 [node name="Normal" type="Sprite2D" parent="Cats" unique_id=1893778164]
@@ -142,6 +146,10 @@ position = Vector2(858.725, 21)
 texture = ExtResource("18_ydmd8")
 centered = false
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cats" unique_id=1112991057]
+position = Vector2(641.725, 414)
+shape = SubResource("CapsuleShape2D_ke15f")
+
 [node name="BackpackItems" type="Node2D" parent="." unique_id=789525542]
 z_index = 5
 
@@ -149,35 +157,47 @@ z_index = 5
 texture = ExtResource("10_2x1g0")
 centered = false
 
-[node name="AxolotlPic" type="Sprite2D" parent="BackpackItems" unique_id=1129215648]
-position = Vector2(115.765, 304)
+[node name="AxolotlPic" type="TextureRect" parent="BackpackItems" unique_id=1624098753]
+offset_left = 115.765
+offset_top = 304.0
+offset_right = 115.765
+offset_bottom = 304.0
 texture = ExtResource("11_riqfo")
-centered = false
 
-[node name="VoidSquidPic" type="Sprite2D" parent="BackpackItems" unique_id=1985485537]
-position = Vector2(297.425, 304)
+[node name="VoidSquidPic" type="TextureRect" parent="BackpackItems" unique_id=2119558032]
+offset_left = 297.425
+offset_top = 304.0
+offset_right = 297.425
+offset_bottom = 304.0
 texture = ExtResource("12_yxkem")
-centered = false
 
-[node name="FihPic" type="Sprite2D" parent="BackpackItems" unique_id=841630107]
-position = Vector2(297.425, 109.825)
+[node name="FihPic" type="TextureRect" parent="BackpackItems" unique_id=1369017450]
+offset_left = 297.425
+offset_top = 109.825
+offset_right = 297.425
+offset_bottom = 109.825
 texture = ExtResource("13_7v4os")
-centered = false
 
-[node name="SalmonPic" type="Sprite2D" parent="BackpackItems" unique_id=1918066217]
-position = Vector2(117.065, 109.825)
+[node name="SalmonPic" type="TextureRect" parent="BackpackItems" unique_id=1643696381]
+offset_left = 117.065
+offset_top = 109.825
+offset_right = 117.065
+offset_bottom = 109.825
 texture = ExtResource("14_pjscj")
-centered = false
 
-[node name="WhalePic" type="Sprite2D" parent="BackpackItems" unique_id=962318920]
-position = Vector2(117.065, 498.875)
+[node name="WhalePic" type="TextureRect" parent="BackpackItems" unique_id=1450370669]
+offset_left = 117.065
+offset_top = 498.875
+offset_right = 117.065
+offset_bottom = 498.875
 texture = ExtResource("15_m7n2d")
-centered = false
 
-[node name="PearlPic" type="Sprite2D" parent="BackpackItems" unique_id=1680925280]
-position = Vector2(297.47, 498.875)
+[node name="PearlPic" type="TextureRect" parent="BackpackItems" unique_id=564565135]
+offset_left = 297.47
+offset_top = 498.875
+offset_right = 297.47
+offset_bottom = 498.875
 texture = ExtResource("16_65hh5")
-centered = false
 
 [node name="BackpackClose" type="TextureButton" parent="BackpackItems" unique_id=1100840748]
 offset_left = 461.0
@@ -187,51 +207,6 @@ offset_bottom = 97.0
 texture_normal = ExtResource("19_65hh5")
 texture_pressed = ExtResource("19_65hh5")
 texture_hover = ExtResource("20_6byu3")
-
-[node name="BackpackItems2" type="Node2D" parent="." unique_id=1823515297]
-z_index = 5
-
-[node name="AxolotlPic" type="TextureRect" parent="BackpackItems2" unique_id=22480358]
-offset_left = 115.765
-offset_top = 304.0
-offset_right = 115.765
-offset_bottom = 304.0
-texture = ExtResource("13_311ux")
-
-[node name="VoidSquidPic" type="TextureRect" parent="BackpackItems2" unique_id=1252705024]
-offset_left = 297.425
-offset_top = 304.0
-offset_right = 297.425
-offset_bottom = 304.0
-texture = ExtResource("14_pnils")
-
-[node name="FihPic" type="TextureRect" parent="BackpackItems2" unique_id=803182419]
-offset_left = 297.425
-offset_top = 109.825
-offset_right = 297.425
-offset_bottom = 109.825
-texture = ExtResource("15_ow4wq")
-
-[node name="SalmonPic" type="TextureRect" parent="BackpackItems2" unique_id=401641044]
-offset_left = 117.065
-offset_top = 109.825
-offset_right = 117.065
-offset_bottom = 109.825
-texture = ExtResource("16_o66vf")
-
-[node name="WhalePic" type="TextureRect" parent="BackpackItems2" unique_id=865764009]
-offset_left = 117.065
-offset_top = 498.875
-offset_right = 117.065
-offset_bottom = 498.875
-texture = ExtResource("17_fipmv")
-
-[node name="PearlPic" type="TextureRect" parent="BackpackItems2" unique_id=1025050907]
-offset_left = 297.47
-offset_top = 498.875
-offset_right = 297.47
-offset_bottom = 498.875
-texture = ExtResource("18_ydmd8")
 
 [node name="BackpackToggle" type="TextureButton" parent="." unique_id=2111341832]
 layout_mode = 0
@@ -252,6 +227,20 @@ texture_normal = ExtResource("23_leunp")
 texture_pressed = ExtResource("23_leunp")
 texture_hover = ExtResource("24_h1v62")
 
+[node name="Draggables" type="Node2D" parent="." unique_id=73913798]
+
+[connection signal="mouse_entered" from="BackpackItems/AxolotlPic" to="." method="_on_axolotl_pic_mouse_entered"]
+[connection signal="mouse_exited" from="BackpackItems/AxolotlPic" to="." method="_on_axolotl_pic_mouse_exited"]
+[connection signal="mouse_entered" from="BackpackItems/VoidSquidPic" to="." method="_on_void_squid_pic_mouse_entered"]
+[connection signal="mouse_exited" from="BackpackItems/VoidSquidPic" to="." method="_on_void_squid_pic_mouse_exited"]
+[connection signal="mouse_entered" from="BackpackItems/FihPic" to="." method="_on_fih_pic_mouse_entered"]
+[connection signal="mouse_exited" from="BackpackItems/FihPic" to="." method="_on_fih_pic_mouse_exited"]
+[connection signal="mouse_entered" from="BackpackItems/SalmonPic" to="." method="_on_salmon_pic_mouse_entered"]
+[connection signal="mouse_exited" from="BackpackItems/SalmonPic" to="." method="_on_salmon_pic_mouse_exited"]
+[connection signal="mouse_entered" from="BackpackItems/WhalePic" to="." method="_on_whale_pic_mouse_entered"]
+[connection signal="mouse_exited" from="BackpackItems/WhalePic" to="." method="_on_whale_pic_mouse_exited"]
+[connection signal="mouse_entered" from="BackpackItems/PearlPic" to="." method="_on_pearl_pic_mouse_entered"]
+[connection signal="mouse_exited" from="BackpackItems/PearlPic" to="." method="_on_pearl_pic_mouse_exited"]
 [connection signal="pressed" from="BackpackItems/BackpackClose" to="." method="_on_backpack_close_pressed"]
 [connection signal="pressed" from="BackpackToggle" to="." method="_on_backpack_open_pressed"]
 [connection signal="pressed" from="ChangeSceneIcon" to="." method="_on_change_scene_icon_pressed"]

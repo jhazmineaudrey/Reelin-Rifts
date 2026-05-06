@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://72xqycyw85jl"]
+
+[ext_resource type="Script" uid="uid://cq8brifuovm6p" path="res://Scripts/draggable_item.gd" id="1_jpr1a"]
+[ext_resource type="Texture2D" uid="uid://cdwso5ajggcc1" path="res://Assets/axolotl.png" id="2_hvpxw"]
+[ext_resource type="Texture2D" uid="uid://d0osdk7xilebr" path="res://Assets/voidsquid.png" id="3_mbcvg"]
+[ext_resource type="Texture2D" uid="uid://cu30le4bu2sb7" path="res://Assets/fih.png" id="4_tjyt6"]
+[ext_resource type="Texture2D" uid="uid://b6w4cbidvp3x3" path="res://Assets/salmon.png" id="5_d2tiv"]
+[ext_resource type="Texture2D" uid="uid://4jfbnq5adym" path="res://Assets/whale.png" id="6_qckvk"]
+[ext_resource type="Texture2D" uid="uid://dbwyeyaeug8le" path="res://Assets/pearl.png" id="7_2mcun"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fr36t"]
+radius = 48.010414
+
+[node name="DraggableItem" type="Area2D" unique_id=239577814]
+z_index = 6
+script = ExtResource("1_jpr1a")
+
+[node name="Axolotl" type="Sprite2D" parent="." unique_id=1589055858]
+visible = false
+texture = ExtResource("2_hvpxw")
+
+[node name="VSquid" type="Sprite2D" parent="." unique_id=786771894]
+visible = false
+texture = ExtResource("3_mbcvg")
+
+[node name="Fish" type="Sprite2D" parent="." unique_id=1617168527]
+visible = false
+texture = ExtResource("4_tjyt6")
+
+[node name="Salmon" type="Sprite2D" parent="." unique_id=2029610689]
+visible = false
+texture = ExtResource("5_d2tiv")
+
+[node name="Whale" type="Sprite2D" parent="." unique_id=907517323]
+visible = false
+texture = ExtResource("6_qckvk")
+
+[node name="Pearl" type="Sprite2D" parent="." unique_id=728329388]
+visible = false
+position = Vector2(0, 3.665)
+texture = ExtResource("7_2mcun")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1862218530]
+position = Vector2(-1, -4)
+shape = SubResource("CircleShape2D_fr36t")
