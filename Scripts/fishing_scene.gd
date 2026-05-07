@@ -48,10 +48,10 @@ func _ready() -> void:
 			pass
 		1: 
 			scene_buttons_container.size = Vector2(150, 150)
-		2: 
-			scene_buttons_container.size = Vector2(300, 300) 
+		2:
+			scene_buttons_container.size = Vector2(300, 150) 
 	
-	scene_buttons_container.global_position = Vector2((get_viewport_rect().size.x/2) - (scene_buttons_container.size.x/2), 10)
+	scene_buttons_container.global_position = Vector2((get_viewport_rect().size.x/2) - (scene_buttons_container.size.x/2), 0)
 
 func _on_change_scene_icon_pressed() -> void:
 	get_tree().change_scene_to_packed(MAIN_MENU)
