@@ -62,6 +62,19 @@ var dragobj
 @onready var backpack_toggle: TextureButton = $BackpackToggle
 
 func _ready() -> void:
+	normal_cat.visible = true if GlobalScene.current_scene == "Normal" else false
+	void_cat.visible = true if GlobalScene.current_scene == "Void" else false
+	light_cat.visible = true if GlobalScene.current_scene == "Light" else false
+	
+	normal_bg.visible = true if GlobalScene.current_scene == "Normal" else false
+	void_bg.visible = true if GlobalScene.current_scene == "Void" else false
+	light_bg.visible = true if GlobalScene.current_scene == "Light" else false
+	
+	void_item.visible = true if GlobalScene.current_scene == "Void" else false
+	void_2_item.visible = true if GlobalScene.current_scene == "Void" else false
+	void_3_item.visible = true if GlobalScene.current_scene == "Void" else false
+	light_ring_item.visible = true if GlobalScene.current_scene == "Light" else false
+	
 	axolotl_pic.visible = true if GlobalScene.axolotl_unlock == true else false
 	void_squid_pic.visible = true if GlobalScene.vsquid_unlock == true else false
 	fih_pic.visible = true if GlobalScene.fish_unlock == true else false
@@ -82,9 +95,7 @@ func _ready() -> void:
 	salmon_pic.mouse_filter = MOUSE_FILTER_PASS if GlobalScene.salmon_unlock == true else MOUSE_FILTER_IGNORE
 	whale_pic.mouse_filter = MOUSE_FILTER_PASS if GlobalScene.whale_unlock == true else MOUSE_FILTER_IGNORE
 	pearl_pic.mouse_filter = MOUSE_FILTER_PASS if GlobalScene.pearl_unlock == true else MOUSE_FILTER_IGNORE
-		
-	normal_bg.visible = true
-	normal_cat.visible = true
+	
 	cats.position = Vector2(0, 0)
 	backpack_items.position.x = -570.555
 	backpack_toggle.position = Vector2(0, 0)

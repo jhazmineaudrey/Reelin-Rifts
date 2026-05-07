@@ -24,23 +24,29 @@ func _ready() -> void:
 			normalbg.visible = true
 			if GlobalScene.void_unlock == true:
 				void_button.reparent(scene_buttons_container) 
+				void_button.disabled = false
 				void_button.visible = true
 			if GlobalScene.light_unlock == true:
 				light_button.reparent(scene_buttons_container) 
+				light_button.disabled = false
 				light_button.visible = true
 		"Void":
 			voidbg.visible = true
 			normal_button.reparent(scene_buttons_container) 
+			normal_button.disabled = false
 			normal_button.visible = true
 			if GlobalScene.light_unlock == true:
 				light_button.reparent(scene_buttons_container)
+				light_button.disabled = false
 				light_button.visible = true
 		"Light":
 			lightbg.visible = true
 			normal_button.reparent(scene_buttons_container) 
+			normal_button.disabled = false
 			normal_button.visible = true
 			if GlobalScene.void_unlock == true:
 				void_button.reparent(scene_buttons_container)
+				void_button.disabled = false
 				void_button.visible = true
 		
 	match scene_buttons_container.get_child_count():
@@ -55,3 +61,16 @@ func _ready() -> void:
 
 func _on_change_scene_icon_pressed() -> void:
 	get_tree().change_scene_to_packed(MAIN_MENU)
+
+
+func _on_void_button_pressed() -> void:
+	GlobalScene.current_scene = "Void"
+	get_tree().reload_current_scene()
+
+func _on_light_button_pressed() -> void:
+	GlobalScene.current_scene = "Light"
+	get_tree().reload_current_scene()
+
+func _on_normal_button_pressed() -> void:
+	GlobalScene.current_scene = "Normal"
+	get_tree().reload_current_scene()

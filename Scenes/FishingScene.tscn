@@ -32,6 +32,7 @@ texture_hover = ExtResource("2_yqmf6")
 z_index = -1
 
 [node name="Normal" type="Sprite2D" parent="Backgrounds" unique_id=1700897821]
+visible = false
 z_index = -1
 texture = ExtResource("4_s8ryg")
 centered = false
@@ -91,6 +92,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+disabled = true
 texture_normal = ExtResource("10_05mig")
 texture_pressed = ExtResource("10_05mig")
 texture_hover = ExtResource("11_gc7q3")
@@ -110,6 +112,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+disabled = true
 texture_normal = ExtResource("12_4x7v3")
 texture_pressed = ExtResource("12_4x7v3")
 texture_hover = ExtResource("13_d61yx")
@@ -128,8 +131,12 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+disabled = true
 texture_normal = ExtResource("14_sslnf")
 texture_pressed = ExtResource("14_sslnf")
 texture_hover = ExtResource("15_u7kdj")
 
 [connection signal="pressed" from="ChangeSceneIcon" to="." method="_on_change_scene_icon_pressed"]
+[connection signal="pressed" from="VoidButton" to="." method="_on_void_button_pressed"]
+[connection signal="pressed" from="LightButton" to="." method="_on_light_button_pressed"]
+[connection signal="pressed" from="NormalButton" to="." method="_on_normal_button_pressed"]

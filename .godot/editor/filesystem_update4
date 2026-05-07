@@ -2,3 +2,6 @@ res://Scenes/global_scene.tscn
 res://Scripts/global_vars.gd
 res://Scenes/FishingScene.tscn
 res://Scripts/fishing_scene.gd
+res://Scenes/MainMenu.tscn
+res://Scripts/main_menu.gd
+res://Scripts/scene_items.gd

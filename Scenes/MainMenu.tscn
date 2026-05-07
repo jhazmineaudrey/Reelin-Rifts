@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cnafky4vaccwc" path="res://Assets/BGVoid.png" id="3_if7li"]
 [ext_resource type="Texture2D" uid="uid://fuasd1tohghq" path="res://Assets/VoidFloor.png" id="4_rrcx7"]
 [ext_resource type="Texture2D" uid="uid://de36nxj6yaou3" path="res://Assets/VoidIsle1.png" id="5_fh7cp"]
+[ext_resource type="Script" uid="uid://d0gjrcbkif55o" path="res://Scripts/scene_items.gd" id="5_pnils"]
 [ext_resource type="Texture2D" uid="uid://dt5teo1i286pt" path="res://Assets/VoidIsle2.png" id="6_8e205"]
 [ext_resource type="Texture2D" uid="uid://bct04nwop3a4w" path="res://Assets/CatNormal.png" id="7_7467j"]
 [ext_resource type="Texture2D" uid="uid://dfky885p54xm6" path="res://Assets/CatLight.png" id="8_2x1g0"]
@@ -45,11 +46,11 @@ script = ExtResource("1_riqfo")
 [node name="BGs" type="Node2D" parent="." unique_id=892573024]
 
 [node name="Normal" type="Sprite2D" parent="BGs" unique_id=318949594]
+visible = false
 texture = ExtResource("1_cmrfp")
 centered = false
 
 [node name="Light" type="Sprite2D" parent="BGs" unique_id=1365007095]
-visible = false
 texture = ExtResource("2_loo7a")
 centered = false
 
@@ -59,6 +60,7 @@ texture = ExtResource("3_if7li")
 centered = false
 
 [node name="SceneItems" type="Node2D" parent="." unique_id=1257323311]
+script = ExtResource("5_pnils")
 
 [node name="Void" type="Sprite2D" parent="SceneItems" unique_id=740853012]
 visible = false
@@ -76,15 +78,16 @@ texture = ExtResource("6_8e205")
 centered = false
 
 [node name="LightRing" type="Sprite2D" parent="SceneItems" unique_id=2008870429]
-visible = false
+position = Vector2(620, 362)
 texture = ExtResource("8_yxkem")
-centered = false
+offset = Vector2(20, -2)
 
 [node name="Cats" type="CharacterBody2D" parent="." unique_id=1554911703]
 position = Vector2(218.275, 0)
 script = ExtResource("9_311ux")
 
 [node name="Normal" type="Sprite2D" parent="Cats" unique_id=1893778164]
+visible = false
 texture = ExtResource("7_7467j")
 centered = false
 
