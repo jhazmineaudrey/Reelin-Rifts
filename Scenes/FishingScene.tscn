@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://0cv8rk36xugq" path="res://Assets/LightIconHover.png" id="13_d61yx"]
 [ext_resource type="Texture2D" uid="uid://cuwwjxnyyveay" path="res://Assets/NormalIcon.png" id="14_sslnf"]
 [ext_resource type="Texture2D" uid="uid://js23n8q1lgma" path="res://Assets/NormalIconHover.png" id="15_u7kdj"]
+[ext_resource type="PackedScene" uid="uid://bgmymqbxyu420" path="res://Scenes/fishing_bar.tscn" id="16_gc7q3"]
 
 [node name="FishingScene" type="Node2D" unique_id=2084561976]
 script = ExtResource("1_yqmf6")
@@ -135,6 +136,9 @@ disabled = true
 texture_normal = ExtResource("14_sslnf")
 texture_pressed = ExtResource("14_sslnf")
 texture_hover = ExtResource("15_u7kdj")
+
+[node name="FishingBar" parent="." unique_id=1722417014 instance=ExtResource("16_gc7q3")]
+position = Vector2(407, 632)
 
 [connection signal="pressed" from="ChangeSceneIcon" to="." method="_on_change_scene_icon_pressed"]
 [connection signal="pressed" from="VoidButton" to="." method="_on_void_button_pressed"]

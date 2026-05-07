@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bgmymqbxyu420"]
+
+[ext_resource type="Script" uid="uid://d43q3x1687rq" path="res://Scripts/fishing_bar.gd" id="1_jg3am"]
+[ext_resource type="Texture2D" uid="uid://bdjgsqakdmb80" path="res://Assets/NormalFishBar.png" id="1_x0e2n"]
+[ext_resource type="Texture2D" uid="uid://bab8x8wa0xyxp" path="res://Assets/VoidFishBar.png" id="2_jg3am"]
+[ext_resource type="Texture2D" uid="uid://dbtb02ud53lre" path="res://Assets/LightFishBar.png" id="3_b0mte"]
+
+[node name="FishingBar" type="Node2D" unique_id=1722417014]
+script = ExtResource("1_jg3am")
+
+[node name="NormalProgressBar" type="TextureProgressBar" parent="." unique_id=1957277725]
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+texture_progress = ExtResource("1_x0e2n")
+
+[node name="VoidProgressBar" type="TextureProgressBar" parent="." unique_id=1840619676]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+texture_progress = ExtResource("2_jg3am")
+
+[node name="LightProgressBar" type="TextureProgressBar" parent="." unique_id=621136466]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+texture_progress = ExtResource("3_b0mte")
+
+[node name="Hits" type="Node2D" parent="." unique_id=1650086649]

@@ -5,3 +5,9 @@ res://Scripts/fishing_scene.gd
 res://Scenes/MainMenu.tscn
 res://Scripts/main_menu.gd
 res://Scripts/scene_items.gd
+res://Scenes/fishing_bar.tscn
+res://Scenes/fish_cursor_hit_area.tscn
+res://Scripts/fishing_bar.gd
+res://Scripts/fish_cursor_hit_area.gd
+res://Scripts/fishbar_cursor.gd
+res://Scenes/fishbar_cursor.tscn

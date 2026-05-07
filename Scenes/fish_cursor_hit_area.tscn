@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b26b4rfe4ggsp"]
+
+[ext_resource type="Script" uid="uid://dpv70gawkxfn" path="res://Scripts/fish_cursor_hit_area.gd" id="1_rax16"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gi3dr"]
+size = Vector2(22, 46)
+
+[node name="FishCursorHitArea" type="Area2D" unique_id=1268044461]
+script = ExtResource("1_rax16")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=738170650]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -22.0
+offset_right = 11.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.95808977, 0.11040493, 1.92523e-07, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1790798146]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_gi3dr")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
