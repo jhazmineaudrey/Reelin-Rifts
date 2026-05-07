@@ -15,7 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://0cv8rk36xugq" path="res://Assets/LightIconHover.png" id="13_d61yx"]
 [ext_resource type="Texture2D" uid="uid://cuwwjxnyyveay" path="res://Assets/NormalIcon.png" id="14_sslnf"]
 [ext_resource type="Texture2D" uid="uid://js23n8q1lgma" path="res://Assets/NormalIconHover.png" id="15_u7kdj"]
-[ext_resource type="PackedScene" uid="uid://bgmymqbxyu420" path="res://Scenes/fishing_bar.tscn" id="16_gc7q3"]
+[ext_resource type="Texture2D" uid="uid://cdwso5ajggcc1" path="res://Assets/axolotl.png" id="17_q1mok"]
+[ext_resource type="Texture2D" uid="uid://d0osdk7xilebr" path="res://Assets/voidsquid.png" id="18_d0ubc"]
+[ext_resource type="Texture2D" uid="uid://cu30le4bu2sb7" path="res://Assets/fih.png" id="19_4uijw"]
+[ext_resource type="Texture2D" uid="uid://b6w4cbidvp3x3" path="res://Assets/salmon.png" id="20_ky5vq"]
+[ext_resource type="Texture2D" uid="uid://4jfbnq5adym" path="res://Assets/whale.png" id="21_4snnr"]
+[ext_resource type="Texture2D" uid="uid://dbwyeyaeug8le" path="res://Assets/pearl.png" id="22_ehq85"]
 
 [node name="FishingScene" type="Node2D" unique_id=2084561976]
 script = ExtResource("1_yqmf6")
@@ -137,8 +142,59 @@ texture_normal = ExtResource("14_sslnf")
 texture_pressed = ExtResource("14_sslnf")
 texture_hover = ExtResource("15_u7kdj")
 
-[node name="FishingBar" parent="." unique_id=1722417014 instance=ExtResource("16_gc7q3")]
-position = Vector2(407, 632)
+[node name="FishShowBg" type="ColorRect" parent="." unique_id=2069021631]
+modulate = Color(1, 1, 1, 0)
+offset_left = -12.0
+offset_top = -18.0
+offset_right = 1315.0
+offset_bottom = 745.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ShowFishedSprites" type="Node2D" parent="." unique_id=1403123048]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Axolotl" type="Sprite2D" parent="ShowFishedSprites" unique_id=186091878]
+visible = false
+z_index = 6
+position = Vector2(640, 319.58)
+scale = Vector2(2.715, 2.715)
+texture = ExtResource("17_q1mok")
+
+[node name="VoidSquid" type="Sprite2D" parent="ShowFishedSprites" unique_id=1950080]
+visible = false
+z_index = 6
+position = Vector2(640, 319.58)
+scale = Vector2(2.715, 2.715)
+texture = ExtResource("18_d0ubc")
+
+[node name="Fish" type="Sprite2D" parent="ShowFishedSprites" unique_id=2032941079]
+visible = false
+z_index = 6
+position = Vector2(640, 319.58)
+scale = Vector2(2.715, 2.715)
+texture = ExtResource("19_4uijw")
+
+[node name="Salmon" type="Sprite2D" parent="ShowFishedSprites" unique_id=333595616]
+visible = false
+z_index = 6
+position = Vector2(640, 319.58)
+scale = Vector2(2.715, 2.715)
+texture = ExtResource("20_ky5vq")
+
+[node name="Whale" type="Sprite2D" parent="ShowFishedSprites" unique_id=1803714058]
+visible = false
+z_index = 6
+position = Vector2(640, 319.58)
+scale = Vector2(2.715, 2.715)
+texture = ExtResource("21_4snnr")
+
+[node name="Pearl" type="Sprite2D" parent="ShowFishedSprites" unique_id=1776247124]
+visible = false
+z_index = 6
+position = Vector2(640, 319.58)
+scale = Vector2(2.715, 2.715)
+texture = ExtResource("22_ehq85")
 
 [connection signal="pressed" from="ChangeSceneIcon" to="." method="_on_change_scene_icon_pressed"]
 [connection signal="pressed" from="VoidButton" to="." method="_on_void_button_pressed"]

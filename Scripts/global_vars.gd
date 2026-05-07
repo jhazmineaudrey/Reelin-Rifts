@@ -7,8 +7,8 @@ var axolotl_unlock : bool = false
 var whale_unlock : bool = false
 var pearl_unlock : bool = false
 
-var void_unlock : bool = true
-var light_unlock : bool = true
+var void_unlock : bool = false
+var light_unlock : bool = false
 
 
 var fish_qty : int = 0
@@ -18,7 +18,9 @@ var axolotl_qty : int = 0
 var whale_qty : int = 0
 var pearl_qty : int = 0
 
-var possible_cat_wants = ["Fish", "Salmon", "VSquid", "Axolotl", "Whale", "Pearl"]
+var possible_cat_wants = ["Fish", "Salmon"]
+var weights = [45.0, 25.0]
+var weighted = PackedFloat32Array(weights)
 var current_cat_want : String
 var cat_want = false
 
@@ -32,10 +34,21 @@ func _ready() -> void:
 
 func _on_tim_til_next_thought_timeout() -> void:
 	time_til_next_thought.wait_time = randi_range(2, 5)
-	current_cat_want = possible_cat_wants.pick_random()
+	var rng = RandomNumberGenerator.new().rand_weighted(weighted)
+	current_cat_want = possible_cat_wants[rng]
 	cat_want = true
 
 func thought_reset():
 	current_cat_want = ""
 	time_til_next_thought.start()
 	cat_want = false
+
+func unlock_void():
+	possible_cat_wants.append_array(["VSquid", "Axolotl"])
+	weights.append_array([15.0, 10.0])
+	void_unlock = true
+
+func unlock_light():
+	possible_cat_wants.append_array(["Pearl", "Whale"])
+	weights.append_array([4.0, 1.0])
+	light_unlock = true

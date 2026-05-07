@@ -17,7 +17,8 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	if correct_hits == 3:
-		self.queue_free()
+		get_parent().fished()
+		queue_free()
 
 func reset_hits():
 	if hits.get_child_count() > 0:
