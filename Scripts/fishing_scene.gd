@@ -31,6 +31,7 @@ const VOID_FISHING_BAR = preload("uid://eew0uv82yo6c")
 @onready var salmon: Sprite2D = $ShowFishedSprites/Salmon
 @onready var whale: Sprite2D = $ShowFishedSprites/Whale
 @onready var pearl: Sprite2D = $ShowFishedSprites/Pearl
+@onready var catch_text: RichTextLabel = $ShowFishedSprites/CatchText
 
 # Fishing Buttons
 @onready var fishing_buttons: Node2D = $FishingButtons
@@ -93,7 +94,8 @@ func _input(_event: InputEvent) -> void:
 		create_tween().tween_property(fish_show_bg, "modulate:a", 0, 0.5).set_ease(Tween.EASE_IN_OUT)
 		create_tween().tween_property(show_fished_sprites, "modulate:a", 0, 0.5).set_ease(Tween.EASE_IN_OUT)
 		for i in show_fished_sprites.get_children():
-			i.visible = false
+			if i is not RichTextLabel:
+				i.visible = false
 		match GlobalScene.current_scene:
 			"Normal":
 				normal_fish_button.disabled = false
@@ -141,36 +143,42 @@ func show_fished():
 			if GlobalScene.fish_unlock != true:
 				GlobalScene.fish_unlock = true
 			fish.visible = true
+			catch_text.text = "[wave] You caught a Fish!"
 			if not GlobalScene.fish_qty >= 99:
 				GlobalScene.fish_qty += 1
 		"Salmon":
 			if GlobalScene.salmon_unlock != true:
 				GlobalScene.salmon_unlock = true
 			salmon.visible = true
+			catch_text.text = "[wave] You caught a Salmon!"
 			if not GlobalScene.salmon_qty >= 99:
 				GlobalScene.salmon_qty += 1
 		"VSquid":
 			if GlobalScene.vsquid_unlock != true:
 				GlobalScene.vsquid_unlock = true
 			void_squid.visible = true
+			catch_text.text = "[wave] You caught a Void Squid!"
 			if not GlobalScene.vsquid_qty >= 99:
 				GlobalScene.vsquid_qty += 1
 		"Axolotl":
 			if GlobalScene.axolotl_unlock != true:
 				GlobalScene.axolotl_unlock = true
 			axolotl.visible = true
+			catch_text.text = "[wave] You caught a Axolotl!"
 			if not GlobalScene.axolotl_qty >= 99:
 				GlobalScene.axolotl_qty += 1
 		"Pearl":
 			if GlobalScene.pearl_unlock != true:
 				GlobalScene.pearl_unlock = true
 			pearl.visible = true
+			catch_text.text = "[wave] You caught a Pearl!"
 			if not GlobalScene.pearl_qty >= 99:
 				GlobalScene.pearl_qty += 1
 		"Whale":
 			if GlobalScene.whale_unlock != true:
 				GlobalScene.whale_unlock = true
 			whale.visible = true
+			catch_text.text = "[wave] You caught a Whale!"
 			if not GlobalScene.whale_qty >= 99:
 				GlobalScene.whale_qty += 1
 

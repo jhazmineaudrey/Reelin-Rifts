@@ -183,19 +183,19 @@ func _input(_event: InputEvent) -> void:
 								GlobalScene.thought_reset()
 								for i in draggables.get_children():
 									i.queue_free()
-						"Whale":
-							if GlobalScene.whale_qty > 0:
-								GlobalScene.whale_qty -= 1
-								
-								GlobalScene.score += 50
-								GlobalScene.thought_reset()
-								for i in draggables.get_children():
-									i.queue_free()
 						"Pearl":
 							if GlobalScene.pearl_qty > 0:
 								GlobalScene.pearl_qty -= 1
 								
 								GlobalScene.score += 30
+								GlobalScene.thought_reset()
+								for i in draggables.get_children():
+									i.queue_free()
+						"Whale":
+							if GlobalScene.whale_qty > 0:
+								GlobalScene.whale_qty -= 1
+								
+								GlobalScene.score += 50
 								GlobalScene.thought_reset()
 								for i in draggables.get_children():
 									i.queue_free()

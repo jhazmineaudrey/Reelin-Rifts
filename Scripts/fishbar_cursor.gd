@@ -24,6 +24,8 @@ func _input(_event: InputEvent) -> void:
 		else:
 			get_parent().get_parent().normal_fish_button.disabled = false
 			get_parent().get_parent().normal_fish_button.visible = true
+			get_parent().get_parent().normalbg.visible = true
+			get_parent().get_parent().normalfbg.visible = false
 			self.get_parent().queue_free()
 
 func _on_area_entered(area: Area2D) -> void:

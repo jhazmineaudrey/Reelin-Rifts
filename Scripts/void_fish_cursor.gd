@@ -41,6 +41,8 @@ func _input(_event: InputEvent) -> void:
 		else:
 			get_parent().get_parent().void_fish_button.disabled = false
 			get_parent().get_parent().void_fish_button.visible = true
+			get_parent().get_parent().voidbg.visible = true
+			get_parent().get_parent().voidfbg.visible = false
 			self.get_parent().queue_free()			
 
 func move_down():

@@ -31,13 +31,20 @@ var score = 0
 func _ready() -> void:
 	time_til_next_thought.wait_time = randi_range(2, 5)
 	time_til_next_thought.start()
+	
+func _process(_delta: float) -> void:
+	if GlobalScene.score >= 75 and not void_unlock:
+		unlock_void()
+	elif GlobalScene.score >= 200 and not light_unlock:
+		unlock_light()
+		set_process(false)
+		
 
 func _on_tim_til_next_thought_timeout() -> void:
 	time_til_next_thought.wait_time = randi_range(2, 5)
 	var rng = RandomNumberGenerator.new()
 	var weighted = PackedFloat32Array(weights)
-	var randomizer = rng.rand_weighted(weighted)
-	current_cat_want = possible_cat_wants[randomizer]
+	current_cat_want = possible_cat_wants[rng.rand_weighted(weighted)]
 	cat_want = true
 
 func thought_reset():

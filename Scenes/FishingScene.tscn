@@ -159,6 +159,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="ShowFishedSprites" type="Node2D" parent="." unique_id=1403123048]
 modulate = Color(1, 1, 1, 0)
+z_index = 1
 
 [node name="Axolotl" type="Sprite2D" parent="ShowFishedSprites" unique_id=186091878]
 visible = false
@@ -201,6 +202,20 @@ z_index = 6
 position = Vector2(640, 319.58)
 scale = Vector2(2.715, 2.715)
 texture = ExtResource("22_ehq85")
+
+[node name="CatchText" type="RichTextLabel" parent="ShowFishedSprites" unique_id=1185889833]
+offset_left = 62.0
+offset_top = 509.0
+offset_right = 1221.0
+offset_bottom = 567.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="FishingButtons" type="Node2D" parent="." unique_id=741791017]
 position = Vector2(490, 550)
