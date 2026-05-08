@@ -59,12 +59,11 @@ var hovering = false
 @onready var draggables: Node2D = $Draggables
 var dragobj
 
-var score = 0
 @onready var score_text: RichTextLabel = $ScoreText
 @onready var backpack_toggle: TextureButton = $BackpackToggle
 
 func _ready() -> void:
-	score_text.text = "SCORE " + str(score)
+	score_text.text = "SCORE: " + str(GlobalScene.score)
 	normal_cat.visible = true if GlobalScene.current_scene == "Normal" else false
 	void_cat.visible = true if GlobalScene.current_scene == "Void" else false
 	light_cat.visible = true if GlobalScene.current_scene == "Light" else false
@@ -156,40 +155,50 @@ func _input(_event: InputEvent) -> void:
 							if GlobalScene.fish_qty > 0:
 								GlobalScene.fish_qty -= 1
 								
+								GlobalScene.score += 2
 								GlobalScene.thought_reset()
 								for i in draggables.get_children():
 									i.queue_free()
 						"Salmon":
 							if GlobalScene.salmon_qty > 0:
 								GlobalScene.salmon_qty -= 1
+								
+								GlobalScene.score += 5
 								GlobalScene.thought_reset()
 								for i in draggables.get_children():
 									i.queue_free()
 						"VSquid":
 							if GlobalScene.vsquid_qty > 0:
 								GlobalScene.vsquid_qty -= 1
+								
+								GlobalScene.score += 10
 								GlobalScene.thought_reset()
 								for i in draggables.get_children():
 									i.queue_free()
 						"Axolotl":
 							if GlobalScene.axolotl_qty > 0:
 								GlobalScene.axolotl_qty -= 1
+								
+								GlobalScene.score += 20
 								GlobalScene.thought_reset()
 								for i in draggables.get_children():
 									i.queue_free()
 						"Whale":
 							if GlobalScene.whale_qty > 0:
 								GlobalScene.whale_qty -= 1
+								
+								GlobalScene.score += 50
 								GlobalScene.thought_reset()
 								for i in draggables.get_children():
 									i.queue_free()
 						"Pearl":
 							if GlobalScene.pearl_qty > 0:
 								GlobalScene.pearl_qty -= 1
+								
+								GlobalScene.score += 30
 								GlobalScene.thought_reset()
 								for i in draggables.get_children():
 									i.queue_free()
-					# Add some logic here with the scoring system 👌
 				elif draggables.get_child_count() > 0:
 					for i in draggables.get_children():
 						i.queue_free()
@@ -198,6 +207,7 @@ func _input(_event: InputEvent) -> void:
 					i.queue_free()
 	
 func _process(_delta: float) -> void:
+	score_text.text = "SCORE: " + str(GlobalScene.score)
 	if GlobalScene.cat_want == true:
 		thought.visible = true
 		match GlobalScene.current_cat_want:

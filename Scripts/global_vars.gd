@@ -1,22 +1,22 @@
 extends Node
 
-var fish_unlock : bool = true
-var salmon_unlock : bool = true
-var vsquid_unlock : bool = true
-var axolotl_unlock : bool = true
-var whale_unlock : bool = true
-var pearl_unlock : bool = true
+var fish_unlock : bool = false
+var salmon_unlock : bool = false
+var vsquid_unlock : bool = false
+var axolotl_unlock : bool = false
+var whale_unlock : bool = false
+var pearl_unlock : bool = false
 
 var void_unlock : bool = false
 var light_unlock : bool = false
 
 
-var fish_qty : int = 500
-var salmon_qty : int = 500
-var vsquid_qty : int = 500
-var axolotl_qty : int = 500
-var whale_qty : int = 500
-var pearl_qty : int = 500
+var fish_qty : int = 0
+var salmon_qty : int = 0
+var vsquid_qty : int = 0
+var axolotl_qty : int = 0
+var whale_qty : int = 0
+var pearl_qty : int = 0
 
 var possible_cat_wants = ["Fish", "Salmon"]
 var weights = [35.0, 25.0]
@@ -24,14 +24,13 @@ var current_cat_want : String
 var cat_want = false
 
 var current_scene : String  = "Normal"
+var score = 0
 
 @onready var time_til_next_thought: Timer = $TimeTilNextThought
 
 func _ready() -> void:
 	time_til_next_thought.wait_time = randi_range(2, 5)
 	time_til_next_thought.start()
-	unlock_light()
-	unlock_void()
 
 func _on_tim_til_next_thought_timeout() -> void:
 	time_til_next_thought.wait_time = randi_range(2, 5)

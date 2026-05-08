@@ -98,12 +98,18 @@ func _input(_event: InputEvent) -> void:
 			"Normal":
 				normal_fish_button.disabled = false
 				normal_fish_button.visible = true
+				normalbg.visible = true
+				normalfbg.visible = false
 			"Void":
 				void_fish_button.disabled = false
 				void_fish_button.visible = true
+				voidbg.visible = true
+				voidfbg.visible = false
 			"Light":
 				light_fish_button.disabled = false
 				light_fish_button.visible = true
+				lightbg.visible = true
+				lightfbg.visible = false
 				
 		set_process_input(false)
 
@@ -129,37 +135,44 @@ func show_fished():
 	set_process_input(true)
 	create_tween().tween_property(fish_show_bg, "modulate:a", 0.4, 0.5).set_ease(Tween.EASE_IN_OUT)
 	create_tween().tween_property(show_fished_sprites, "modulate:a", 1, 0.5).set_ease(Tween.EASE_IN_OUT)
+	
 	match picked:
 		"Fish":
 			if GlobalScene.fish_unlock != true:
 				GlobalScene.fish_unlock = true
 			fish.visible = true
-			GlobalScene.fish_qty += 1
+			if not GlobalScene.fish_qty >= 99:
+				GlobalScene.fish_qty += 1
 		"Salmon":
 			if GlobalScene.salmon_unlock != true:
 				GlobalScene.salmon_unlock = true
 			salmon.visible = true
-			GlobalScene.salmon_qty += 1
+			if not GlobalScene.salmon_qty >= 99:
+				GlobalScene.salmon_qty += 1
 		"VSquid":
 			if GlobalScene.vsquid_unlock != true:
 				GlobalScene.vsquid_unlock = true
 			void_squid.visible = true
-			GlobalScene.vsquid_qty += 1
+			if not GlobalScene.vsquid_qty >= 99:
+				GlobalScene.vsquid_qty += 1
 		"Axolotl":
 			if GlobalScene.axolotl_unlock != true:
 				GlobalScene.axolotl_unlock = true
 			axolotl.visible = true
-			GlobalScene.axolotl_qty += 1
+			if not GlobalScene.axolotl_qty >= 99:
+				GlobalScene.axolotl_qty += 1
 		"Pearl":
 			if GlobalScene.pearl_unlock != true:
 				GlobalScene.pearl_unlock = true
 			pearl.visible = true
-			GlobalScene.pearl_qty += 1
+			if not GlobalScene.pearl_qty >= 99:
+				GlobalScene.pearl_qty += 1
 		"Whale":
 			if GlobalScene.whale_unlock != true:
 				GlobalScene.whale_unlock = true
 			whale.visible = true
-			GlobalScene.whale_qty += 1
+			if not GlobalScene.whale_qty >= 99:
+				GlobalScene.whale_qty += 1
 
 func _on_change_scene_icon_pressed() -> void:
 	get_tree().change_scene_to_packed(MAIN_MENU)
@@ -180,6 +193,8 @@ func _on_normal_button_pressed() -> void:
 func _on_normal_fish_button_pressed() -> void:
 	normal_fish_button.disabled = true
 	normal_fish_button.visible = false
+	normalfbg.visible = true
+	normalbg.visible = false
 	
 	await get_tree().create_timer(randf_range(4,6)).timeout
 	
@@ -190,6 +205,8 @@ func _on_normal_fish_button_pressed() -> void:
 func _on_void_fish_button_pressed() -> void:
 	void_fish_button.disabled = true
 	void_fish_button.visible = false
+	voidfbg.visible = true
+	voidbg.visible = false
 	
 	await get_tree().create_timer(randf_range(4,6)).timeout
 	
@@ -200,6 +217,8 @@ func _on_void_fish_button_pressed() -> void:
 func _on_light_fish_button_pressed() -> void:
 	light_fish_button.disabled = true
 	light_fish_button.visible = false
+	lightfbg.visible = true
+	lightbg.visible = false
 	
 	await get_tree().create_timer(randf_range(4,6)).timeout
 	

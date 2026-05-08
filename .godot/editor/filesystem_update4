@@ -15,3 +15,5 @@ res://Scenes/void_fish_cursor.tscn
 res://Scripts/void_fish_cursor.gd
 res://Scenes/fishbar_cursor.tscn
 res://Scripts/fishbar_cursor.gd
+res://Scenes/MainMenu.tscn
+res://Scripts/main_menu.gd
