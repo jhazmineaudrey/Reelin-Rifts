@@ -22,16 +22,8 @@ func _input(_event: InputEvent) -> void:
 			self.get_parent().correct_hits += 1
 			self.get_parent().reset_hits()
 		else:
-			match GlobalScene.current_scene:
-				"Normal":
-					get_parent().get_parent().normal_fish_button.disabled = false
-					get_parent().get_parent().normal_fish_button.visible = true
-				"Void":
-					get_parent().get_parent().void_fish_button.disabled = false
-					get_parent().get_parent().void_fish_button.visible = true
-				"Light":
-					get_parent().get_parent().light_fish_button.disabled = false
-					get_parent().get_parent().light_fish_button.visible = true
+			get_parent().get_parent().normal_fish_button.disabled = false
+			get_parent().get_parent().normal_fish_button.visible = true
 			self.get_parent().queue_free()
 
 func _on_area_entered(area: Area2D) -> void:

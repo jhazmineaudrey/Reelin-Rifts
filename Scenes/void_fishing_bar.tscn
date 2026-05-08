@@ -1,3 +1,22 @@
 [gd_scene format=3 uid="uid://eew0uv82yo6c"]
 
+[ext_resource type="Texture2D" uid="uid://c33imjydb68v5" path="res://Assets/VoidBar.png" id="1_l2eqj"]
+[ext_resource type="Script" uid="uid://dqw2imdf4m42n" path="res://Scripts/void_fishing_bar.gd" id="1_l4rxc"]
+
 [node name="VoidFishingBar" type="Node2D" unique_id=1062415751]
+script = ExtResource("1_l4rxc")
+
+[node name="Bar1" type="Sprite2D" parent="." unique_id=1088905949]
+position = Vector2(-100, 0)
+texture = ExtResource("1_l2eqj")
+region_enabled = true
+region_rect = Rect2(0, 0, 60, 250)
+
+[node name="Bar2" type="Sprite2D" parent="." unique_id=998294298]
+texture = ExtResource("1_l2eqj")
+
+[node name="Bar3" type="Sprite2D" parent="." unique_id=1864325301]
+position = Vector2(100, 0)
+texture = ExtResource("1_l2eqj")
+
+[node name="VoidSuccessHitmarks" type="Node2D" parent="." unique_id=1273607930]

@@ -1,12 +1,12 @@
+Node2D
+CollisionShape2D
+ColorRect
+Area2D
 Sprite2D
 Timer
-Node2D
 TextureButton
 TextureProgressBar
 RichTextLabel
-ColorRect
-CollisionShape2D
-Area2D
 Label
 TextureRect
 CharacterBody2D

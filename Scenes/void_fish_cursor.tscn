@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://caxwv7duyictk"]
+
+[ext_resource type="Texture2D" uid="uid://bnt1h5cpknmu4" path="res://Assets/FishBarCursor.png" id="1_kwchg"]
+[ext_resource type="Script" uid="uid://c6d6cwbdmq0hy" path="res://Scripts/void_fish_cursor.gd" id="1_tt2ud"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tt2ud"]
+radius = 2.9999998
+height = 56.0
+
+[node name="VoidFishCursor" type="Area2D" unique_id=402402876]
+rotation = 1.5707964
+script = ExtResource("1_tt2ud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=932817631]
+position = Vector2(0.515, 0)
+shape = SubResource("CapsuleShape2D_tt2ud")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1144183544]
+texture = ExtResource("1_kwchg")
+region_enabled = true
+region_rect = Rect2(236, 0, 27, 60)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

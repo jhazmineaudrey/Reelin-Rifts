@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ch4q26xmr4fig"]
+
+[ext_resource type="Script" uid="uid://df10urdswj2" path="res://Scripts/void_fish_succeed.gd" id="1_e5c0c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhwhn"]
+resource_local_to_scene = true
+size = Vector2(60.05, 20)
+
+[node name="VoidFishSucceed" type="Area2D" unique_id=1080145000]
+script = ExtResource("1_e5c0c")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=771823797]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -19.9075
+offset_right = 30.0
+offset_bottom = 19.907495
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19215687, 0.96862745, 0.38431373, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=131855631]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_fhwhn")

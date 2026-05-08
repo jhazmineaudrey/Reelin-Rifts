@@ -3,6 +3,7 @@ extends Node2D
 var MAIN_MENU = load("uid://cmaar5fm0qybv")
 const FISHING_BAR = preload("uid://bgmymqbxyu420")
 const LIGHT_DIMENSION_FISHING_BAR = preload("uid://dcvm868nm8fji")
+const VOID_FISHING_BAR = preload("uid://eew0uv82yo6c")
 
 # Buttons
 @onready var scene_buttons_container: HBoxContainer = $SceneButtonsContainer
@@ -110,17 +111,17 @@ func fished():
 	match GlobalScene.current_scene:
 		"Normal":
 			var normal_fishes = ["Fish", "Salmon"]
-			var weights = PackedFloat32Array([70.0, 30.0])
+			var weights = PackedFloat32Array([60.0, 40.0])
 			var rng = RandomNumberGenerator.new().rand_weighted(weights)
 			picked = normal_fishes[rng]
 		"Void":
 			var void_fishes = ["VSquid", "Axolotl"]
-			var weights = PackedFloat32Array([80.0, 20.0])
+			var weights = PackedFloat32Array([70.0, 30.0])
 			var rng = RandomNumberGenerator.new().rand_weighted(weights)
 			picked = void_fishes[rng]
 		"Light":
 			var light_fishes = ["Pearl", "Whale"]
-			var weights = PackedFloat32Array([90.0, 10.0])
+			var weights = PackedFloat32Array([80.0, 20.0])
 			var rng = RandomNumberGenerator.new().rand_weighted(weights)
 			picked = light_fishes[rng]
 			
@@ -192,9 +193,9 @@ func _on_void_fish_button_pressed() -> void:
 	
 	await get_tree().create_timer(randf_range(4,6)).timeout
 	
-	var fishbar = FISHING_BAR.instantiate()
-	add_child(fishbar)
-	fishbar.position = Vector2(389.185, 572.785)
+	var voidbar = VOID_FISHING_BAR.instantiate()
+	add_child(voidbar)
+	voidbar.position = Vector2(625.575, 526.62)
 
 func _on_light_fish_button_pressed() -> void:
 	light_fish_button.disabled = true
