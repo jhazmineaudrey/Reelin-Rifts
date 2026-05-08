@@ -20,7 +20,13 @@
 [ext_resource type="Texture2D" uid="uid://cu30le4bu2sb7" path="res://Assets/fih.png" id="19_4uijw"]
 [ext_resource type="Texture2D" uid="uid://b6w4cbidvp3x3" path="res://Assets/salmon.png" id="20_ky5vq"]
 [ext_resource type="Texture2D" uid="uid://4jfbnq5adym" path="res://Assets/whale.png" id="21_4snnr"]
+[ext_resource type="Texture2D" uid="uid://ckdum6tx82mkn" path="res://Assets/NormalFishButton.png" id="22_byafo"]
 [ext_resource type="Texture2D" uid="uid://dbwyeyaeug8le" path="res://Assets/pearl.png" id="22_ehq85"]
+[ext_resource type="Texture2D" uid="uid://b5ahjdtcodwjb" path="res://Assets/NormalFishButtonH.png" id="23_7065t"]
+[ext_resource type="Texture2D" uid="uid://bccnqafuv8hqi" path="res://Assets/VoidFishButton.png" id="24_u8pbq"]
+[ext_resource type="Texture2D" uid="uid://b06pendhsc6pe" path="res://Assets/VoidFishButtonH.png" id="25_dberr"]
+[ext_resource type="Texture2D" uid="uid://bu4m3cmatky6v" path="res://Assets/LightFishButton.png" id="26_ksbst"]
+[ext_resource type="Texture2D" uid="uid://bor3t3jrveokp" path="res://Assets/LightFishButtonH.png" id="27_ne41v"]
 
 [node name="FishingScene" type="Node2D" unique_id=2084561976]
 script = ExtResource("1_yqmf6")
@@ -196,7 +202,40 @@ position = Vector2(640, 319.58)
 scale = Vector2(2.715, 2.715)
 texture = ExtResource("22_ehq85")
 
+[node name="FishingButtons" type="Node2D" parent="." unique_id=741791017]
+position = Vector2(490, 550)
+
+[node name="NormalFishButton" type="TextureButton" parent="FishingButtons" unique_id=1672306785]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+disabled = true
+texture_normal = ExtResource("22_byafo")
+texture_pressed = ExtResource("22_byafo")
+texture_hover = ExtResource("23_7065t")
+
+[node name="VoidFishButton" type="TextureButton" parent="FishingButtons" unique_id=120843807]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+disabled = true
+texture_normal = ExtResource("24_u8pbq")
+texture_pressed = ExtResource("24_u8pbq")
+texture_hover = ExtResource("25_dberr")
+
+[node name="LightFishButton" type="TextureButton" parent="FishingButtons" unique_id=527596851]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+disabled = true
+texture_normal = ExtResource("26_ksbst")
+texture_pressed = ExtResource("26_ksbst")
+texture_hover = ExtResource("27_ne41v")
+
 [connection signal="pressed" from="ChangeSceneIcon" to="." method="_on_change_scene_icon_pressed"]
 [connection signal="pressed" from="VoidButton" to="." method="_on_void_button_pressed"]
 [connection signal="pressed" from="LightButton" to="." method="_on_light_button_pressed"]
 [connection signal="pressed" from="NormalButton" to="." method="_on_normal_button_pressed"]
+[connection signal="pressed" from="FishingButtons/NormalFishButton" to="." method="_on_normal_fish_button_pressed"]
+[connection signal="pressed" from="FishingButtons/VoidFishButton" to="." method="_on_void_fish_button_pressed"]
+[connection signal="pressed" from="FishingButtons/LightFishButton" to="." method="_on_light_fish_button_pressed"]

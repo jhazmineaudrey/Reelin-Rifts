@@ -46,11 +46,11 @@ script = ExtResource("1_riqfo")
 [node name="BGs" type="Node2D" parent="." unique_id=892573024]
 
 [node name="Normal" type="Sprite2D" parent="BGs" unique_id=318949594]
-visible = false
 texture = ExtResource("1_cmrfp")
 centered = false
 
 [node name="Light" type="Sprite2D" parent="BGs" unique_id=1365007095]
+visible = false
 texture = ExtResource("2_loo7a")
 centered = false
 
@@ -78,6 +78,7 @@ texture = ExtResource("6_8e205")
 centered = false
 
 [node name="LightRing" type="Sprite2D" parent="SceneItems" unique_id=2008870429]
+visible = false
 position = Vector2(620, 362)
 texture = ExtResource("8_yxkem")
 offset = Vector2(20, -2)
@@ -281,6 +282,18 @@ texture_pressed = ExtResource("23_leunp")
 texture_hover = ExtResource("24_h1v62")
 
 [node name="Draggables" type="Node2D" parent="." unique_id=73913798]
+
+[node name="ScoreText" type="RichTextLabel" parent="." unique_id=1456368800]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 633.0
+offset_right = 1281.0
+offset_bottom = 751.0
+theme_override_font_sizes/normal_font_size = 63
+text = "SCORE: "
+fit_content = true
+scroll_active = false
+horizontal_alignment = 2
 
 [connection signal="mouse_entered" from="BackpackItems/AxolotlPic" to="." method="_on_axolotl_pic_mouse_entered"]
 [connection signal="mouse_exited" from="BackpackItems/AxolotlPic" to="." method="_on_axolotl_pic_mouse_exited"]

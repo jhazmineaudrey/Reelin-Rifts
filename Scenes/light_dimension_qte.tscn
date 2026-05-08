@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ckn7qbtskm8ql"]
+
+[ext_resource type="Texture2D" uid="uid://ck771uhs0p4pj" path="res://Assets/LightButton.png" id="1_ck45l"]
+[ext_resource type="Texture2D" uid="uid://bdilnyqt18in0" path="res://Assets/LightButtonH.png" id="2_io474"]
+[ext_resource type="Script" uid="uid://d3vwqllay58e1" path="res://Scripts/light_dimension_qte.gd" id="3_io474"]
+
+[node name="LightDimensionQTE" type="TextureButton" unique_id=852656015]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_ck45l")
+texture_pressed = ExtResource("1_ck45l")
+texture_hover = ExtResource("2_io474")
+script = ExtResource("3_io474")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

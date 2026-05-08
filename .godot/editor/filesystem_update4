@@ -1,1 +1,9 @@
+res://Scripts/light_dimension_qte.gd
+res://Scenes/light_dimension_fishing_bar.tscn
+res://Scripts/light_dimension_fishing_bar.gd
+res://Scenes/light_dimension_qte.tscn
 res://Scenes/FishingScene.tscn
+res://Scripts/fishing_scene.gd
+res://Scripts/fishing_bar.gd
+res://Scripts/global_vars.gd
+res://Scenes/fishing_bar.tscn

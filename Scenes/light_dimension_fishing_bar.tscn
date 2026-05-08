@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dcvm868nm8fji"]
+
+[ext_resource type="Texture2D" uid="uid://ctugwfga0va3f" path="res://Assets/LightBarBehind.png" id="1_1iabt"]
+[ext_resource type="Texture2D" uid="uid://cx7bnclv80xla" path="res://Assets/LightBar.png" id="2_oog0q"]
+[ext_resource type="Script" uid="uid://dy2141ujs8bqv" path="res://Scripts/light_dimension_fishing_bar.gd" id="3_oog0q"]
+
+[node name="LightDimensionFishingBar" type="TextureProgressBar" unique_id=356338131]
+offset_right = 40.0
+offset_bottom = 40.0
+step = 0.5
+allow_greater = true
+texture_under = ExtResource("1_1iabt")
+texture_progress = ExtResource("2_oog0q")
+script = ExtResource("3_oog0q")
+
+[node name="QTEs" type="Node2D" parent="." unique_id=225853640]
+
+[node name="ValueDecrease" type="Timer" parent="." unique_id=1284453042]
+wait_time = 0.1
+autostart = true
+
+[node name="QTESpawner" type="Timer" parent="." unique_id=898078053]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="ValueDecrease" to="." method="_on_value_decrease_timeout"]
+[connection signal="timeout" from="QTESpawner" to="." method="_on_qte_spawner_timeout"]
