@@ -45,39 +45,24 @@ func _ready() -> void:
 	set_process_input(false)
 	match GlobalScene.current_scene:
 		"Normal":
+			SFX.normal_bgs.play()
 			normal_fish_button.disabled = false
 			normal_fish_button.visible = true
 			normalbg.visible = true
-			if GlobalScene.void_unlock == true:
-				void_button.reparent(scene_buttons_container) 
-				void_button.disabled = false
-				void_button.visible = true
-			if GlobalScene.light_unlock == true:
-				light_button.reparent(scene_buttons_container) 
-				light_button.disabled = false
-				light_button.visible = true
+			check_void_unlock()
+			check_light_unlock()
 		"Void":
 			void_fish_button.disabled = false
 			void_fish_button.visible = true
 			voidbg.visible = true
-			normal_button.reparent(scene_buttons_container) 
-			normal_button.disabled = false
-			normal_button.visible = true
-			if GlobalScene.light_unlock == true:
-				light_button.reparent(scene_buttons_container)
-				light_button.disabled = false
-				light_button.visible = true
+			enable_normal_teleporter()
+			check_light_unlock()
 		"Light":
 			light_fish_button.disabled = false
 			light_fish_button.visible = true
 			lightbg.visible = true
-			normal_button.reparent(scene_buttons_container) 
-			normal_button.disabled = false
-			normal_button.visible = true
-			if GlobalScene.void_unlock == true:
-				void_button.reparent(scene_buttons_container)
-				void_button.disabled = false
-				void_button.visible = true
+			enable_normal_teleporter()
+			check_void_unlock()
 		
 	match scene_buttons_container.get_child_count():
 		0:
@@ -91,27 +76,20 @@ func _ready() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Click"):
+		SFX.successfully_fished.stop()
 		create_tween().tween_property(fish_show_bg, "modulate:a", 0, 0.5).set_ease(Tween.EASE_IN_OUT)
 		create_tween().tween_property(show_fished_sprites, "modulate:a", 0, 0.5).set_ease(Tween.EASE_IN_OUT)
 		for i in show_fished_sprites.get_children():
 			if i is not RichTextLabel:
 				i.visible = false
+		
 		match GlobalScene.current_scene:
 			"Normal":
-				normal_fish_button.disabled = false
-				normal_fish_button.visible = true
-				normalbg.visible = true
-				normalfbg.visible = false
+				after_show_fished(SFX.water_splash, normal_fish_button, normalbg, normalfbg)
 			"Void":
-				void_fish_button.disabled = false
-				void_fish_button.visible = true
-				voidbg.visible = true
-				voidfbg.visible = false
+				after_show_fished(SFX.laser_retract, void_fish_button, voidbg, voidfbg)
 			"Light":
-				light_fish_button.disabled = false
-				light_fish_button.visible = true
-				lightbg.visible = true
-				lightfbg.visible = false
+				after_show_fished(SFX.light_dimension_fish_end, light_fish_button, lightbg, lightfbg)
 				
 		set_process_input(false)
 
@@ -137,68 +115,102 @@ func show_fished():
 	set_process_input(true)
 	create_tween().tween_property(fish_show_bg, "modulate:a", 0.4, 0.5).set_ease(Tween.EASE_IN_OUT)
 	create_tween().tween_property(show_fished_sprites, "modulate:a", 1, 0.5).set_ease(Tween.EASE_IN_OUT)
+	SFX.successfully_fished.play()
 	
 	match picked:
 		"Fish":
 			if GlobalScene.fish_unlock != true:
 				GlobalScene.fish_unlock = true
-			fish.visible = true
-			catch_text.text = "[wave] You caught a Fish!"
+			fish_catch_screen(fish, "[wave] You caught a Fish!")
 			if not GlobalScene.fish_qty >= 99:
 				GlobalScene.fish_qty += 1
 		"Salmon":
 			if GlobalScene.salmon_unlock != true:
 				GlobalScene.salmon_unlock = true
-			salmon.visible = true
-			catch_text.text = "[wave] You caught a Salmon!"
+			fish_catch_screen(salmon, "[wave] You caught a Salmon!")
 			if not GlobalScene.salmon_qty >= 99:
 				GlobalScene.salmon_qty += 1
 		"VSquid":
 			if GlobalScene.vsquid_unlock != true:
 				GlobalScene.vsquid_unlock = true
-			void_squid.visible = true
-			catch_text.text = "[wave] You caught a Void Squid!"
+			fish_catch_screen(void_squid, "[wave] You caught a Void Squid!")
 			if not GlobalScene.vsquid_qty >= 99:
 				GlobalScene.vsquid_qty += 1
 		"Axolotl":
 			if GlobalScene.axolotl_unlock != true:
 				GlobalScene.axolotl_unlock = true
-			axolotl.visible = true
-			catch_text.text = "[wave] You caught a Axolotl!"
+			fish_catch_screen(axolotl, "[wave] You caught a Axolotl!")
 			if not GlobalScene.axolotl_qty >= 99:
 				GlobalScene.axolotl_qty += 1
 		"Pearl":
 			if GlobalScene.pearl_unlock != true:
 				GlobalScene.pearl_unlock = true
-			pearl.visible = true
-			catch_text.text = "[wave] You caught a Pearl!"
+			fish_catch_screen(pearl, "[wave] You caught a Pearl!")
 			if not GlobalScene.pearl_qty >= 99:
 				GlobalScene.pearl_qty += 1
 		"Whale":
 			if GlobalScene.whale_unlock != true:
 				GlobalScene.whale_unlock = true
-			whale.visible = true
-			catch_text.text = "[wave] You caught a Whale!"
+			fish_catch_screen(whale, "[wave] You caught a Whale!")
 			if not GlobalScene.whale_qty >= 99:
 				GlobalScene.whale_qty += 1
 
+func after_show_fished(sfx, current_fish_button, currentbg, currentfbg):
+	sfx.play()
+	current_fish_button.disabled = false
+	current_fish_button.visible = true
+	currentbg.visible = true
+	currentfbg.visible = false
+
+func fish_catch_screen(obj, catchtext : String):
+	obj.visible = true
+	catch_text.text = catchtext
+				
+func check_light_unlock():
+	if GlobalScene.light_unlock == true:
+		light_button.reparent(scene_buttons_container)
+		light_button.disabled = false
+		light_button.visible = true
+
+func check_void_unlock():
+	if GlobalScene.void_unlock == true:
+		void_button.reparent(scene_buttons_container) 
+		void_button.disabled = false
+		void_button.visible = true
+
+func enable_normal_teleporter():
+	normal_button.reparent(scene_buttons_container) 
+	normal_button.disabled = false
+	normal_button.visible = true
+
 func _on_change_scene_icon_pressed() -> void:
+	SFX.normal_bgs.stop()
 	get_tree().change_scene_to_packed(MAIN_MENU)
 
 func _on_void_button_pressed() -> void:
+	SFX.normal_bgs.stop()
+	SFX.light_bgs.stop()
+	SFX.void_bgs.play()
 	GlobalScene.current_scene = "Void"
 	get_tree().reload_current_scene()
 
 func _on_light_button_pressed() -> void:
+	SFX.normal_bgs.stop()
+	SFX.void_bgs.stop()
+	SFX.light_bgs.play()
 	GlobalScene.current_scene = "Light"
 	get_tree().reload_current_scene()
 
 func _on_normal_button_pressed() -> void:
+	SFX.void_bgs.stop()
+	SFX.light_bgs.stop()
+	SFX.normal_bgs.play()
 	GlobalScene.current_scene = "Normal"
 	get_tree().reload_current_scene()
 
 
 func _on_normal_fish_button_pressed() -> void:
+	SFX.fish_start.play()
 	normal_fish_button.disabled = true
 	normal_fish_button.visible = false
 	normalfbg.visible = true
@@ -211,6 +223,7 @@ func _on_normal_fish_button_pressed() -> void:
 	fishbar.position = Vector2(389.185, 572.785)
 
 func _on_void_fish_button_pressed() -> void:
+	SFX.laser.play()
 	void_fish_button.disabled = true
 	void_fish_button.visible = false
 	voidfbg.visible = true
@@ -223,6 +236,7 @@ func _on_void_fish_button_pressed() -> void:
 	voidbar.position = Vector2(625.575, 526.62)
 
 func _on_light_fish_button_pressed() -> void:
+	SFX.light_dimension_fish.play()
 	light_fish_button.disabled = true
 	light_fish_button.visible = false
 	lightfbg.visible = true

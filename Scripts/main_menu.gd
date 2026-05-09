@@ -63,6 +63,9 @@ var dragobj
 @onready var backpack_toggle: TextureButton = $BackpackToggle
 
 func _ready() -> void:
+	if GlobalScene.current_scene == "Normal":
+		SFX.cat_scene_bgm.play()
+	
 	score_text.text = "SCORE: " + str(GlobalScene.score)
 	normal_cat.visible = true if GlobalScene.current_scene == "Normal" else false
 	void_cat.visible = true if GlobalScene.current_scene == "Void" else false
@@ -105,6 +108,7 @@ func _ready() -> void:
 func _input(_event: InputEvent) -> void:
 	if hovering == true:
 		if Input.is_action_just_pressed("Click"):
+			SFX.drag.play(0.5)
 			match current_hover:
 				"Pearl":
 					if GlobalScene.pearl_qty > 0:
@@ -150,59 +154,26 @@ func _input(_event: InputEvent) -> void:
 		if Input.is_action_just_released("Click"):
 			if dragobj.can_feed == true:
 				if picked_up_item == GlobalScene.current_cat_want:
+					SFX.cat_meow.play()
 					match picked_up_item:
 						"Fish":
-							if GlobalScene.fish_qty > 0:
-								GlobalScene.fish_qty -= 1
-								
-								GlobalScene.score += 2
-								GlobalScene.thought_reset()
-								for i in draggables.get_children():
-									i.queue_free()
+							feed_func(GlobalScene.fish_qty, 2)
 						"Salmon":
-							if GlobalScene.salmon_qty > 0:
-								GlobalScene.salmon_qty -= 1
-								
-								GlobalScene.score += 5
-								GlobalScene.thought_reset()
-								for i in draggables.get_children():
-									i.queue_free()
+							feed_func(GlobalScene.salmon_qty, 5)
 						"VSquid":
-							if GlobalScene.vsquid_qty > 0:
-								GlobalScene.vsquid_qty -= 1
-								
-								GlobalScene.score += 10
-								GlobalScene.thought_reset()
-								for i in draggables.get_children():
-									i.queue_free()
+							feed_func(GlobalScene.vsquid_qty, 10)
 						"Axolotl":
-							if GlobalScene.axolotl_qty > 0:
-								GlobalScene.axolotl_qty -= 1
-								
-								GlobalScene.score += 20
-								GlobalScene.thought_reset()
-								for i in draggables.get_children():
-									i.queue_free()
+							feed_func(GlobalScene.axolotl_qty, 20)
 						"Pearl":
-							if GlobalScene.pearl_qty > 0:
-								GlobalScene.pearl_qty -= 1
-								
-								GlobalScene.score += 30
-								GlobalScene.thought_reset()
-								for i in draggables.get_children():
-									i.queue_free()
+							feed_func(GlobalScene.pearl_qty, 30)
 						"Whale":
-							if GlobalScene.whale_qty > 0:
-								GlobalScene.whale_qty -= 1
-								
-								GlobalScene.score += 50
-								GlobalScene.thought_reset()
-								for i in draggables.get_children():
-									i.queue_free()
+							feed_func(GlobalScene.whale_qty, 50)
 				elif draggables.get_child_count() > 0:
+					SFX.drag_reset.play()
 					for i in draggables.get_children():
 						i.queue_free()
 			elif draggables.get_child_count() > 0:
+				SFX.drag_reset.play()
 				for i in draggables.get_children():
 					i.queue_free()
 	
@@ -234,19 +205,29 @@ func _process(_delta: float) -> void:
 	v_squid_qty.text = str(GlobalScene.vsquid_qty)
 	whale_qty.text = str(GlobalScene.whale_qty)
 	pearl_qty.text = str(GlobalScene.pearl_qty)
-	# Remember to put a max cap on this
 	
 func backpack_show():
+	SFX.open_bag.play()
 	create_tween().tween_property(backpack_items, "position:x", 0, 0.5).set_ease(Tween.EASE_IN_OUT)
 	create_tween().tween_property(cats, "position:x", 0, 0.5).set_ease(Tween.EASE_IN_OUT) 
 	create_tween().tween_property(cats, "position:x", 218.275, 0.5).set_ease(Tween.EASE_IN_OUT) 
 	backpack_toggle.disabled = true
 	
 func backpack_hide():
+	SFX.open_bag.play()
 	create_tween().tween_property(backpack_items, "position:x", -570.555, 0.5).set_ease(Tween.EASE_IN_OUT)
 	create_tween().tween_property(backpack_toggle, "position:x", 0, 0.2).set_ease(Tween.EASE_IN_OUT)
 	create_tween().tween_property(cats, "position:x", 0, 0.5).set_ease(Tween.EASE_IN_OUT) 
 	backpack_toggle.disabled = false
+
+func feed_func(objqty, score_add):
+	if objqty > 0:
+		objqty -= 1
+		
+		GlobalScene.score += score_add
+		GlobalScene.thought_reset()
+		for i in draggables.get_children():
+			i.queue_free()
 
 func _on_backpack_open_pressed() -> void:
 	create_tween().tween_property(backpack_toggle, "position:x", -108.91, 0.2).set_ease(Tween.EASE_IN_OUT)
@@ -256,6 +237,7 @@ func _on_backpack_close_pressed() -> void:
 	backpack_hide()
 
 func _on_change_scene_icon_pressed() -> void:
+	SFX.cat_scene_bgm.stop()
 	get_tree().change_scene_to_packed(FISHING_SCENE)
 
 

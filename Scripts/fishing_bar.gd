@@ -8,6 +8,7 @@ var correct_hits = 0
 var max_hits = 3
 
 func _ready() -> void:
+	SFX.reel_in.play()
 	get_parent().fished()
 	var fishcursor = FISHBAR_CURSOR.instantiate()
 	var cursorhit = FISH_CURSOR_HIT_AREA.instantiate()
@@ -28,6 +29,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if correct_hits == max_hits:
 		get_parent().show_fished()
+		SFX.reel_in.stop()
 		queue_free()
 
 func reset_hits():

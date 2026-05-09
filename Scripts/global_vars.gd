@@ -31,6 +31,8 @@ var score = 0
 func _ready() -> void:
 	time_til_next_thought.wait_time = randi_range(2, 5)
 	time_til_next_thought.start()
+	unlock_void()
+	unlock_light()
 	
 func _process(_delta: float) -> void:
 	if GlobalScene.score >= 75 and not void_unlock:

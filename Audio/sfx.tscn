@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bg6nu08vwbyyo"]
+
+[ext_resource type="Script" uid="uid://beoykmdtrl04p" path="res://Scripts/sfx.gd" id="1_pt28n"]
+[ext_resource type="AudioStream" uid="uid://c33fafgqylvq5" path="res://Audio/SFX/catmiao.mp3" id="1_tubkb"]
+[ext_resource type="AudioStream" uid="uid://i7uruyjasscv" path="res://Audio/SFX/Watersplash.mp3" id="2_f4qr7"]
+[ext_resource type="AudioStream" uid="uid://cn2sy8okpy00a" path="res://Audio/SFX/FishRodThrow.mp3" id="3_2rdjq"]
+[ext_resource type="AudioStream" uid="uid://by6iovxtgmqsv" path="res://Audio/SFX/ReelIn.mp3" id="3_aillo"]
+[ext_resource type="AudioStream" uid="uid://2vuj7cwmlc3j" path="res://Audio/SFX/FishThud.mp3" id="4_ht08l"]
+[ext_resource type="AudioStream" uid="uid://c88bu1e88f6xt" path="res://Audio/SFX/Laser.mp3" id="6_3ji85"]
+[ext_resource type="AudioStream" uid="uid://bgna46gy5rtoc" path="res://Audio/SFX/LaserRetract.mp3" id="7_0rgw1"]
+[ext_resource type="AudioStream" uid="uid://p7diuber23io" path="res://Audio/SFX/LightDimensionFish.mp3" id="8_au2eb"]
+[ext_resource type="AudioStream" uid="uid://xqmbkl7o0lde" path="res://Audio/SFX/LightDimensionHits.mp3" id="9_0rgw1"]
+[ext_resource type="AudioStream" uid="uid://bn3idm4hr33wa" path="res://Audio/SFX/LightDimensionFishEnd.mp3" id="9_6k56u"]
+[ext_resource type="AudioStream" uid="uid://bp6til2qnoyqs" path="res://Audio/SFX/OpenBag.mp3" id="10_v7am4"]
+[ext_resource type="AudioStream" uid="uid://betevdyftxq0i" path="res://Audio/SFX/FishedSFX.mp3" id="11_ht08l"]
+[ext_resource type="AudioStream" uid="uid://c4wikffwxlcu1" path="res://Audio/SFX/DragSFX.mp3" id="12_qruu1"]
+[ext_resource type="AudioStream" uid="uid://cy7vy3ynj4sbo" path="res://Audio/SFX/ItemDragReset.mp3" id="13_2rdjq"]
+[ext_resource type="AudioStream" uid="uid://biy7ur6b8nbjl" path="res://Audio/SFX/NormalBGS.mp3" id="14_3ji85"]
+[ext_resource type="AudioStream" uid="uid://dsnib161hqnj0" path="res://Audio/SFX/VoidDimensionBGS.mp3" id="16_au2eb"]
+[ext_resource type="AudioStream" uid="uid://dsqhc608vwn1y" path="res://Audio/SFX/LightDimensionBGS.mp3" id="17_6k56u"]
+[ext_resource type="AudioStream" uid="uid://c46up304u1gxn" path="res://Audio/SFX/CatSceneBGM.mp3" id="19_qruu1"]
+
+[node name="SFX" type="Node" unique_id=1559802765]
+script = ExtResource("1_pt28n")
+
+[node name="CatMeow" type="AudioStreamPlayer" parent="." unique_id=863646313]
+stream = ExtResource("1_tubkb")
+volume_db = 7.69
+
+[node name="FishStart" type="AudioStreamPlayer" parent="." unique_id=1577709749]
+stream = ExtResource("3_2rdjq")
+
+[node name="FishThud" type="AudioStreamPlayer" parent="." unique_id=3287006]
+stream = ExtResource("4_ht08l")
+
+[node name="WaterSplash" type="AudioStreamPlayer" parent="." unique_id=1661922614]
+stream = ExtResource("2_f4qr7")
+
+[node name="ReelIn" type="AudioStreamPlayer" parent="." unique_id=2066212908]
+stream = ExtResource("3_aillo")
+
+[node name="Laser" type="AudioStreamPlayer" parent="." unique_id=576373858]
+stream = ExtResource("6_3ji85")
+
+[node name="LaserRetract" type="AudioStreamPlayer" parent="." unique_id=581901288]
+stream = ExtResource("7_0rgw1")
+
+[node name="LightDimensionFish" type="AudioStreamPlayer" parent="." unique_id=886649898]
+stream = ExtResource("8_au2eb")
+
+[node name="LightDimensionHit" type="AudioStreamPlayer" parent="." unique_id=147132562]
+stream = ExtResource("9_0rgw1")
+
+[node name="LightDimensionFishEnd" type="AudioStreamPlayer" parent="." unique_id=55118620]
+stream = ExtResource("9_6k56u")
+
+[node name="OpenBag" type="AudioStreamPlayer" parent="." unique_id=32277100]
+stream = ExtResource("10_v7am4")
+
+[node name="SuccessfullyFished" type="AudioStreamPlayer" parent="." unique_id=99876314]
+stream = ExtResource("11_ht08l")
+
+[node name="Drag" type="AudioStreamPlayer" parent="." unique_id=618529031]
+stream = ExtResource("12_qruu1")
+
+[node name="DragReset" type="AudioStreamPlayer" parent="." unique_id=1250748469]
+stream = ExtResource("13_2rdjq")
+
+[node name="NormalBGS" type="AudioStreamPlayer" parent="." unique_id=538073415]
+stream = ExtResource("14_3ji85")
+
+[node name="VoidBGS" type="AudioStreamPlayer" parent="." unique_id=1159780233]
+stream = ExtResource("16_au2eb")
+volume_db = -3.36
+
+[node name="LightBGS" type="AudioStreamPlayer" parent="." unique_id=1683281473]
+stream = ExtResource("17_6k56u")
+
+[node name="CatSceneBGM" type="AudioStreamPlayer" parent="." unique_id=323591483]
+stream = ExtResource("19_qruu1")
+
+[connection signal="finished" from="ReelIn" to="." method="_on_reel_in_finished"]
+[connection signal="finished" from="NormalBGS" to="." method="_on_normal_bgs_finished"]
+[connection signal="finished" from="VoidBGS" to="." method="_on_void_bgs_finished"]
+[connection signal="finished" from="LightBGS" to="." method="_on_light_bgs_finished"]
+[connection signal="finished" from="CatSceneBGM" to="." method="_on_cat_scene_bgm_finished"]

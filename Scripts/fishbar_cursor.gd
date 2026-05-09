@@ -19,9 +19,11 @@ func _process(_delta: float) -> void:
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Fish"):
 		if hovering_over_hit:
+			SFX.fish_thud.play()
 			self.get_parent().correct_hits += 1
 			self.get_parent().reset_hits()
 		else:
+			SFX.water_splash.play()
 			get_parent().get_parent().normal_fish_button.disabled = false
 			get_parent().get_parent().normal_fish_button.visible = true
 			get_parent().get_parent().normalbg.visible = true

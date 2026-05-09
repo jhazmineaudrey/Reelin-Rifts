@@ -28,6 +28,7 @@ func _process(_delta: float) -> void:
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Fish"):
 		if hovering_over_hit:
+			SFX.fish_thud.play()
 			self.get_parent().hits += 1
 			if self.get_parent().hits == 1:
 				self.get_parent().cursor2()
@@ -39,6 +40,7 @@ func _input(_event: InputEvent) -> void:
 				
 			self.process_mode = Node.PROCESS_MODE_DISABLED
 		else:
+			SFX.laser_retract.play()
 			get_parent().get_parent().void_fish_button.disabled = false
 			get_parent().get_parent().void_fish_button.visible = true
 			get_parent().get_parent().voidbg.visible = true

@@ -18,6 +18,8 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 [autoload]
 
 GlobalScene="*uid://ufjw5dipkwr8"
+SFX="*uid://bg6nu08vwbyyo"
+Music="*uid://cv581p02nilpj"
 
 [display]
 
@@ -34,6 +36,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 [file_customization]
 
 folder_colors={
+"res://Audio/": "purple",
 "res://Scenes/": "red",
 "res://Scripts/": "green"
 }

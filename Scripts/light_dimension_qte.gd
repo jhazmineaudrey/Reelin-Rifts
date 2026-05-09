@@ -1,6 +1,7 @@
 extends TextureButton
 
 func _on_pressed() -> void:
+	SFX.light_dimension_hit.play()
 	get_parent().get_parent().value += 10
 	for i in get_parent().get_parent().positions:
 		if self.position == i:
