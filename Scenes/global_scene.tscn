@@ -8,4 +8,7 @@ script = ExtResource("1_1riqc")
 [node name="TimeTilNextThought" type="Timer" parent="." unique_id=1130438091]
 one_shot = true
 
+[node name="Timer" type="Timer" parent="." unique_id=1253768881]
+one_shot = true
+
 [connection signal="timeout" from="TimeTilNextThought" to="." method="_on_tim_til_next_thought_timeout"]

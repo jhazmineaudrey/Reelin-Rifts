@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://dmene5fm8o2he"]
+
+[ext_resource type="Texture2D" uid="uid://chfgbpjyja0fq" path="res://Assets/Productivity/Hamburger.png" id="1_hbhfr"]
+[ext_resource type="Script" uid="uid://cngljo6el711c" path="res://Scripts/productivity_scene.gd" id="1_jh6c4"]
+[ext_resource type="Texture2D" uid="uid://d8ld4wdwsk31" path="res://Assets/Productivity/HamburgerH.png" id="2_tmg8v"]
+[ext_resource type="Texture2D" uid="uid://c4riq5kgd3e2i" path="res://Assets/Productivity/ToCatScene.png" id="3_kdfsk"]
+[ext_resource type="Texture2D" uid="uid://btkxmn4gbultl" path="res://Assets/Productivity/ToCatSceneH.png" id="4_hn4h2"]
+[ext_resource type="Texture2D" uid="uid://b8dxwi5yj5v16" path="res://Assets/Productivity/TimeBehind.png" id="5_3dls2"]
+[ext_resource type="Texture2D" uid="uid://bh02x0g3xn1fj" path="res://Assets/Productivity/TimeProgress.png" id="6_kvtsk"]
+[ext_resource type="Texture2D" uid="uid://fw8nyh4enrrg" path="res://Assets/Productivity/ProdCatNormal.png" id="7_k14t6"]
+[ext_resource type="Texture2D" uid="uid://crdx4xo04ym78" path="res://Assets/Productivity/ProdCatVoid.png" id="8_8xsrs"]
+[ext_resource type="Texture2D" uid="uid://c75akvu1s7vx2" path="res://Assets/Productivity/ProdCatLight.png" id="9_giphh"]
+[ext_resource type="Texture2D" uid="uid://dfo8mjouipcqy" path="res://Assets/Productivity/Stop.png" id="10_jbu0o"]
+[ext_resource type="Texture2D" uid="uid://ci7ihn82egbnu" path="res://Assets/Productivity/StopH.png" id="11_jh6c4"]
+[ext_resource type="Texture2D" uid="uid://d0nd1v0fbln8i" path="res://Assets/Productivity/Pause.png" id="12_h8qc8"]
+[ext_resource type="Texture2D" uid="uid://cq2qrkbuse7xi" path="res://Assets/Productivity/PauseH.png" id="13_8rg1l"]
+
+[node name="ProductivityScene" type="Node2D" unique_id=1467229957]
+script = ExtResource("1_jh6c4")
+
+[node name="BG" type="ColorRect" parent="." unique_id=582049364]
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 1296.0
+offset_bottom = 739.0
+color = Color(0.14911404, 0.14911404, 0.14911404, 1)
+
+[node name="Options" type="TextureButton" parent="." unique_id=2147456545]
+offset_left = 20.0
+offset_top = 15.0
+offset_right = 120.0
+offset_bottom = 115.0
+texture_normal = ExtResource("1_hbhfr")
+texture_pressed = ExtResource("1_hbhfr")
+texture_hover = ExtResource("2_tmg8v")
+
+[node name="CatScene" type="TextureButton" parent="." unique_id=94873763]
+offset_left = 1136.805
+offset_top = 15.0
+offset_right = 1236.8057
+offset_bottom = 115.0
+texture_normal = ExtResource("3_kdfsk")
+texture_pressed = ExtResource("3_kdfsk")
+texture_hover = ExtResource("4_hn4h2")
+
+[node name="PomodoroProgressBar" type="TextureProgressBar" parent="." unique_id=218158024]
+offset_left = 301.56
+offset_top = 34.97
+offset_right = 951.56
+offset_bottom = 684.97
+step = 0.01
+value = 100.0
+fill_mode = 5
+radial_initial_angle = 146.0
+radial_fill_degrees = 291.5
+texture_under = ExtResource("5_3dls2")
+texture_progress = ExtResource("6_kvtsk")
+
+[node name="Time" type="RichTextLabel" parent="." unique_id=2022864666]
+offset_left = 149.0
+offset_top = 502.0
+offset_right = 1105.0
+offset_bottom = 713.0
+theme_override_font_sizes/normal_font_size = 108
+text = "00:00"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SessionLabel" type="RichTextLabel" parent="." unique_id=608803604]
+offset_left = 452.0
+offset_top = 648.0
+offset_right = 801.0
+offset_bottom = 705.0
+theme_override_font_sizes/normal_font_size = 41
+text = "BREAK/WORK"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cats" type="Node2D" parent="." unique_id=453001083]
+
+[node name="Normal" type="Sprite2D" parent="Cats" unique_id=1462409852]
+position = Vector2(639.75, 360.75)
+scale = Vector2(0.735, 0.735)
+texture = ExtResource("7_k14t6")
+
+[node name="Void" type="Sprite2D" parent="Cats" unique_id=175370932]
+visible = false
+position = Vector2(639.75, 360.75)
+scale = Vector2(0.735, 0.735)
+texture = ExtResource("8_8xsrs")
+
+[node name="Light" type="Sprite2D" parent="Cats" unique_id=1808284974]
+visible = false
+position = Vector2(639.75, 360.75)
+scale = Vector2(0.735, 0.735)
+texture = ExtResource("9_giphh")
+
+[node name="Stop" type="TextureButton" parent="." unique_id=1013293116]
+offset_left = 19.0
+offset_top = 602.0
+offset_right = 119.0
+offset_bottom = 702.0
+texture_normal = ExtResource("10_jbu0o")
+texture_pressed = ExtResource("10_jbu0o")
+texture_hover = ExtResource("11_jh6c4")
+
+[node name="PauseOrStart" type="TextureButton" parent="." unique_id=104590906]
+offset_left = 1156.085
+offset_top = 599.0
+offset_right = 1256.085
+offset_bottom = 699.0
+texture_normal = ExtResource("12_h8qc8")
+texture_pressed = ExtResource("12_h8qc8")
+texture_hover = ExtResource("13_8rg1l")
+
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CatScene" to="." method="_on_cat_scene_pressed"]
+[connection signal="pressed" from="Stop" to="." method="_on_stop_pressed"]
+[connection signal="pressed" from="PauseOrStart" to="." method="_on_pause_or_start_pressed"]

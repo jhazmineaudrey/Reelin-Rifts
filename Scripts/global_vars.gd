@@ -1,5 +1,8 @@
 extends Node
 
+@onready var time_til_next_thought: Timer = $TimeTilNextThought
+@onready var timer: Timer = $Timer
+
 var fish_unlock : bool = false
 var salmon_unlock : bool = false
 var vsquid_unlock : bool = false
@@ -26,9 +29,18 @@ var cat_want = false
 var current_scene : String  = "Normal"
 var score = 0
 
-@onready var time_til_next_thought: Timer = $TimeTilNextThought
+# Productivity Portion
+var work_sesh_timer : float = 25
+var break_sesh_timer : float = 5
+
+var seconds : int
+var minutes : int
+
+var currently_working : bool
 
 func _ready() -> void:
+	minutes = int(timer.time_left) / 60
+	seconds = int(timer.time_left) % 60
 	time_til_next_thought.wait_time = randi_range(2, 5)
 	time_til_next_thought.start()
 	unlock_void()
@@ -40,7 +52,10 @@ func _process(_delta: float) -> void:
 	elif GlobalScene.score >= 200 and not light_unlock:
 		unlock_light()
 		set_process(false)
-		
+	
+	if currently_working:
+		minutes = int(timer.time_left) / 60
+		seconds = int(timer.time_left) % 60
 
 func _on_tim_til_next_thought_timeout() -> void:
 	time_til_next_thought.wait_time = randi_range(2, 5)
@@ -63,3 +78,15 @@ func unlock_light():
 	possible_cat_wants.append_array(["Pearl", "Whale"])
 	weights.append_array([6.0, 4.0])
 	light_unlock = true
+	
+	
+func start_productivity_timer():
+	timer.wait_time = work_sesh_timer * 60
+	timer.start()
+	currently_working = true
+
+func stop_productivity_timer():
+	timer.stop()
+	minutes = work_sesh_timer
+	seconds = 0
+	currently_working = false
