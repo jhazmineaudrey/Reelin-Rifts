@@ -12,3 +12,4 @@ one_shot = true
 one_shot = true
 
 [connection signal="timeout" from="TimeTilNextThought" to="." method="_on_tim_til_next_thought_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

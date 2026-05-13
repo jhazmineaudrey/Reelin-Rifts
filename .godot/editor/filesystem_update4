@@ -1,5 +1,2 @@
 res://Scenes/Productvity/ProductivityScene.tscn
-res://Scenes/MainMenu.tscn
 res://Scripts/productivity_scene.gd
-res://Scripts/global_vars.gd
-res://Scenes/global_scene.tscn

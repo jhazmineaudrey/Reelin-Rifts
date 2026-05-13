@@ -1,5 +1,6 @@
-Timer
 TextureButton
+Control
+Timer
 RichTextLabel
 Sprite2D
 Node2D
@@ -11,4 +12,3 @@ TextEdit
 CollisionShape2D
 Area2D
 Label
-TextureRect

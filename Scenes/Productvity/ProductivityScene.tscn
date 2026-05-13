@@ -14,16 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://ci7ihn82egbnu" path="res://Assets/Productivity/StopH.png" id="11_jh6c4"]
 [ext_resource type="Texture2D" uid="uid://d0nd1v0fbln8i" path="res://Assets/Productivity/Pause.png" id="12_h8qc8"]
 [ext_resource type="Texture2D" uid="uid://cq2qrkbuse7xi" path="res://Assets/Productivity/PauseH.png" id="13_8rg1l"]
+[ext_resource type="Texture2D" uid="uid://ddwt22o3h7wfk" path="res://Assets/Productivity/Next.png" id="15_3o80k"]
+[ext_resource type="Texture2D" uid="uid://dvsk5hgkybaqb" path="res://Assets/Productivity/NextH.png" id="16_aryii"]
+[ext_resource type="Texture2D" uid="uid://3i7q00wn6cij" path="res://Assets/Productivity/Back.png" id="17_w3l3j"]
+[ext_resource type="Texture2D" uid="uid://de7qm8a31ukvs" path="res://Assets/Productivity/BackH.png" id="18_twa80"]
 
 [node name="ProductivityScene" type="Node2D" unique_id=1467229957]
 script = ExtResource("1_jh6c4")
-
-[node name="BG" type="ColorRect" parent="." unique_id=582049364]
-offset_left = -18.0
-offset_top = -22.0
-offset_right = 1296.0
-offset_bottom = 739.0
-color = Color(0.14911404, 0.14911404, 0.14911404, 1)
 
 [node name="Options" type="TextureButton" parent="." unique_id=2147456545]
 offset_left = 20.0
@@ -35,9 +32,9 @@ texture_pressed = ExtResource("1_hbhfr")
 texture_hover = ExtResource("2_tmg8v")
 
 [node name="CatScene" type="TextureButton" parent="." unique_id=94873763]
-offset_left = 1136.805
+offset_left = 1147.32
 offset_top = 15.0
-offset_right = 1236.8057
+offset_right = 1247.3206
 offset_bottom = 115.0
 texture_normal = ExtResource("3_kdfsk")
 texture_pressed = ExtResource("3_kdfsk")
@@ -117,7 +114,61 @@ texture_normal = ExtResource("12_h8qc8")
 texture_pressed = ExtResource("12_h8qc8")
 texture_hover = ExtResource("13_8rg1l")
 
+[node name="Control" type="Control" parent="." unique_id=1811396230]
+z_index = -1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BGWork" type="ColorRect" parent="Control" unique_id=582049364]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 1296.0
+offset_bottom = 739.0
+mouse_filter = 2
+color = Color(0.14911404, 0.14911404, 0.14911404, 1)
+
+[node name="BGRest" type="ColorRect" parent="Control" unique_id=2014341850]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 1296.0
+offset_bottom = 739.0
+mouse_filter = 2
+color = Color(0.2469503, 0.2469503, 0.2469503, 1)
+
+[node name="BGLongRest" type="ColorRect" parent="Control" unique_id=1716666780]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 1296.0
+offset_bottom = 739.0
+mouse_filter = 2
+color = Color(0.14911404, 0.14911404, 0.14911404, 1)
+
+[node name="Next" type="TextureButton" parent="." unique_id=1095615998]
+offset_left = 1204.085
+offset_top = 298.0
+offset_right = 1254.085
+offset_bottom = 398.0
+texture_normal = ExtResource("15_3o80k")
+texture_pressed = ExtResource("15_3o80k")
+texture_hover = ExtResource("16_aryii")
+
+[node name="Back" type="TextureButton" parent="." unique_id=764272859]
+offset_left = 31.735
+offset_top = 298.0
+offset_right = 81.73503
+offset_bottom = 398.0
+texture_normal = ExtResource("17_w3l3j")
+texture_pressed = ExtResource("17_w3l3j")
+texture_hover = ExtResource("18_twa80")
+
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CatScene" to="." method="_on_cat_scene_pressed"]
 [connection signal="pressed" from="Stop" to="." method="_on_stop_pressed"]
 [connection signal="pressed" from="PauseOrStart" to="." method="_on_pause_or_start_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

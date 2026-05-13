@@ -46,6 +46,7 @@ script = ExtResource("1_riqfo")
 [node name="BGs" type="Node2D" parent="." unique_id=892573024]
 
 [node name="Normal" type="Sprite2D" parent="BGs" unique_id=318949594]
+visible = false
 texture = ExtResource("1_cmrfp")
 centered = false
 
@@ -93,6 +94,7 @@ texture = ExtResource("7_7467j")
 centered = false
 
 [node name="Light" type="Sprite2D" parent="Cats" unique_id=1801005548]
+visible = false
 texture = ExtResource("8_2x1g0")
 centered = false
 
