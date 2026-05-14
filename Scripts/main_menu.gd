@@ -2,6 +2,7 @@ extends Control
 
 var FISHING_SCENE = load("uid://dsnovo4ykgxq0")
 const DRAGGABLE_ITEM = preload("uid://72xqycyw85jl")
+var PRODUCTIVITY_SCENE = load("uid://dmene5fm8o2he")
 
 # Groups
 @onready var b_gs: Node2D = $BGs
@@ -291,3 +292,10 @@ func _on_whale_pic_mouse_exited() -> void:
 func _on_pearl_pic_mouse_exited() -> void:
 	current_hover = "None"
 	hovering = false
+
+
+func _on_to_prod_scene_pressed() -> void:
+	SFX.cat_scene_bgm.stop()
+	SFX.light_bgs.stop()
+	SFX.void_bgs.stop()
+	get_tree().change_scene_to_packed(PRODUCTIVITY_SCENE)

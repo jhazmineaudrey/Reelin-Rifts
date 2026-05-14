@@ -80,6 +80,7 @@ vertical_alignment = 1
 [node name="Cats" type="Node2D" parent="." unique_id=453001083]
 
 [node name="Normal" type="Sprite2D" parent="Cats" unique_id=1462409852]
+visible = false
 position = Vector2(639.75, 360.75)
 scale = Vector2(0.735, 0.735)
 texture = ExtResource("7_k14t6")
@@ -165,6 +166,18 @@ offset_bottom = 398.0
 texture_normal = ExtResource("17_w3l3j")
 texture_pressed = ExtResource("17_w3l3j")
 texture_hover = ExtResource("18_twa80")
+
+[node name="OptionsScene" type="Node2D" parent="." unique_id=400853935]
+
+[node name="Fade" type="ColorRect" parent="OptionsScene" unique_id=1737638517]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+offset_left = -15.0
+offset_top = -30.0
+offset_right = 1305.0
+offset_bottom = 743.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CatScene" to="." method="_on_cat_scene_pressed"]

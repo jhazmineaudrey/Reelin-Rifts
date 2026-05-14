@@ -33,6 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://ddt26n47wjn1j" path="res://Assets/BackpackHover.png" id="20_m7n2d"]
 [ext_resource type="Texture2D" uid="uid://c8rmldaw2m3tc" path="res://Assets/ToFishSceneHover.png" id="23_leunp"]
 [ext_resource type="Texture2D" uid="uid://dbsiue34aa2al" path="res://Assets/ToFishScene.png" id="24_h1v62"]
+[ext_resource type="Texture2D" uid="uid://bkj0gorcutlwc" path="res://Assets/Productivity/ToProdScene.png" id="34_o66vf"]
+[ext_resource type="Texture2D" uid="uid://km7yg4wn63ua" path="res://Assets/Productivity/ToProdSceneH.png" id="35_fipmv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ke15f"]
 radius = 100.725006
@@ -275,12 +277,22 @@ texture_hover = ExtResource("20_m7n2d")
 [node name="ChangeSceneIcon" type="TextureButton" parent="." unique_id=1745503389]
 layout_mode = 0
 offset_left = 1123.0
-offset_top = 234.0
+offset_top = 216.145
 offset_right = 1273.0
-offset_bottom = 384.0
+offset_bottom = 366.1451
 texture_normal = ExtResource("23_leunp")
 texture_pressed = ExtResource("23_leunp")
 texture_hover = ExtResource("24_h1v62")
+
+[node name="ToProdScene" type="TextureButton" parent="." unique_id=945375988]
+layout_mode = 0
+offset_left = 1123.0
+offset_top = 362.255
+offset_right = 1273.0
+offset_bottom = 512.255
+texture_normal = ExtResource("34_o66vf")
+texture_pressed = ExtResource("34_o66vf")
+texture_hover = ExtResource("35_fipmv")
 
 [node name="Draggables" type="Node2D" parent="." unique_id=73913798]
 
@@ -311,3 +323,4 @@ horizontal_alignment = 2
 [connection signal="pressed" from="BackpackItems/BackpackClose" to="." method="_on_backpack_close_pressed"]
 [connection signal="pressed" from="BackpackToggle" to="." method="_on_backpack_open_pressed"]
 [connection signal="pressed" from="ChangeSceneIcon" to="." method="_on_change_scene_icon_pressed"]
+[connection signal="pressed" from="ToProdScene" to="." method="_on_to_prod_scene_pressed"]

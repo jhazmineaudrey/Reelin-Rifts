@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://n85uhfteif5"]
+
+[ext_resource type="Script" uid="uid://dfgq8nv7tgp1c" path="res://Scripts/options_scene.gd" id="1_1vj6v"]
+[ext_resource type="Texture2D" uid="uid://qvg7pjwx36ln" path="res://Assets/Productivity/OptionsSideBar.png" id="2_7bvvr"]
+
+[node name="OptionsScene" type="Node2D" unique_id=845073287]
+process_mode = 3
+z_index = 2
+script = ExtResource("1_1vj6v")
+
+[node name="Control" type="Control" parent="." unique_id=1715182073]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="OptionsSprite" type="TextureRect" parent="Control" unique_id=643525331]
+layout_mode = 0
+offset_left = -403.45
+offset_right = -0.4500122
+offset_bottom = 720.0
+texture = ExtResource("2_7bvvr")
+
+[node name="WorkSessionLength" type="SpinBox" parent="Control" unique_id=798605703]
+layout_mode = 0
+offset_left = -99.56
+offset_top = 136.0
+offset_right = -13.059998
+offset_bottom = 176.0
+min_value = 15.0
+value = 25.0
+alignment = 1
+suffix = "mins"
+
+[node name="BreakSessionLength" type="SpinBox" parent="Control" unique_id=1179265985]
+layout_mode = 0
+offset_left = -99.56
+offset_top = 208.74
+offset_right = -13.059998
+offset_bottom = 248.74
+value = 5.0
+alignment = 1
+suffix = "mins"
+
+[node name="LongBreakSessionLength" type="SpinBox" parent="Control" unique_id=418466965]
+layout_mode = 0
+offset_left = -99.56
+offset_top = 279.155
+offset_right = -13.059998
+offset_bottom = 319.15503
+min_value = 10.0
+value = 15.0
+alignment = 1
+suffix = "mins"
+
+[node name="WorkSeshAmt" type="SpinBox" parent="Control" unique_id=752137007]
+layout_mode = 0
+offset_left = -98.585
+offset_top = 396.92
+offset_right = -12.084999
+offset_bottom = 465.92
+min_value = 2.0
+max_value = 20.0
+value = 4.0
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1411710494]
+modulate = Color(1, 1, 1, 0)
+z_index = -2
+offset_left = 403.0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[connection signal="value_changed" from="Control/WorkSessionLength" to="." method="_on_work_session_length_value_changed"]
+[connection signal="value_changed" from="Control/BreakSessionLength" to="." method="_on_break_session_length_value_changed"]
+[connection signal="value_changed" from="Control/LongBreakSessionLength" to="." method="_on_long_break_session_length_value_changed"]
+[connection signal="value_changed" from="Control/WorkSeshAmt" to="." method="_on_work_sesh_amt_value_changed"]
+[connection signal="mouse_entered" from="ColorRect" to="." method="_on_color_rect_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect" to="." method="_on_color_rect_mouse_exited"]

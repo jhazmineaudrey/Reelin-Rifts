@@ -1,2 +1,6 @@
+res://Scenes/options_scene.tscn
+res://Scripts/options_scene.gd
+res://Scenes/global_scene.tscn
+res://Scripts/global_vars.gd
 res://Scenes/Productvity/ProductivityScene.tscn
 res://Scripts/productivity_scene.gd
